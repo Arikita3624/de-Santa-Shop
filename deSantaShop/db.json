@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "title": "Product 1 ",
+      "price": 1000000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 1,
+      "quantity": 10000,
+      "count": 1,
+      "description": "Product 1 description updated 3",
+      "id": 1
+    },
+    {
+      "title": "Product 2 updated",
+      "price": 2000000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 2,
+      "quantity": 120,
+      "count": 2,
+      "description": "Product 2",
+      "id": 7,
+      "createdAt": "2024-10-18T06:25:39.000Z",
+      "updatedAt": "2024-10-20T06:25:39.000Z"
+    },
+    {
+      "title": "Product 3",
+      "price": 300000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 1,
+      "quantity": 1000,
+      "count": 1,
+      "description": "Product 3 updated\n",
+      "id": 8,
+      "createdAt": "2024-10-18T06:25:39.000Z",
+      "updatedAt": "2024-10-20T06:25:39.000Z"
+    },
+    {
+      "title": "Product 4",
+      "price": 40000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 3,
+      "quantity": 4000,
+      "count": 4,
+      "description": "Product 4 updated\n",
+      "id": 9,
+      "createdAt": "2024-10-18T06:25:39.000Z",
+      "updatedAt": "2024-10-20T06:25:39.000Z"
+    },
+    {
+      "title": "Product 5",
+      "price": 500000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 1,
+      "quantity": 5555,
+      "count": 5,
+      "description": "Product 5 ",
+      "id": 10,
+      "createdAt": "2024-10-21T06:25:39.000Z",
+      "updatedAt": "2024-10-21T06:25:39.000Z"
+    },
+    {
+      "title": "Product 6 updated",
+      "price": 600000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 2,
+      "quantity": 60000,
+      "count": 6,
+      "description": "Product 6 ",
+      "id": 11,
+      "createdAt": "2024-10-18T06:25:39.000Z",
+      "updatedAt": "2025-02-19T07:22:52.901Z"
+    },
+    {
+      "title": "Product 7",
+      "price": 700000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 1,
+      "quantity": 70,
+      "count": 7,
+      "description": "Product 7",
+      "id": 12,
+      "createdAt": "2024-10-18T06:25:39.000Z",
+      "updatedAt": "2024-10-20T06:25:39.000Z"
+    },
+    {
+      "title": "Product 8",
+      "price": 800,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 2,
+      "quantity": 7000,
+      "count": 1,
+      "description": "Product 8",
+      "id": 13,
+      "createdAt": "2024-10-20T06:25:39.000Z",
+      "updatedAt": "2024-10-20T06:25:39.000Z"
+    },
+    {
+      "title": "Product 9 ",
+      "price": 900000,
+      "thumbnail": "https://picsum.photos/200",
+      "categoryID": 2,
+      "quantity": 9,
+      "count": 9,
+      "description": "Product 9 ",
+      "id": 14,
+      "createdAt": "2025-02-17T06:25:39.000Z",
+      "updatedAt": "2025-02-19T06:25:39.000Z"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Category 1"
+    },
+    {
+      "id": 2,
+      "name": "Category 2"
+    },
+    {
+      "id": 3,
+      "name": "Category 3"
+    }
+  ]
+}
