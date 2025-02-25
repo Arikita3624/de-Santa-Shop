@@ -73,6 +73,7 @@ const ProductAdd = () => {
       </div>
       {/* Form */}
       <Form
+        form={form}
         name="basic"
         layout="vertical"
         initialValues={{ remember: true }}

@@ -6,10 +6,13 @@ import {
   ShoppingCartOutlined,
   SettingOutlined,
   BarChartOutlined,
+  TableOutlined,
 } from "@ant-design/icons";
+import { icons } from "antd/es/image/PreviewGroup";
 
 const menuItems = [
-  { path: "/admin", icon: <HomeOutlined />, label: "Dashboard" },
+  { path: "/admin/products", icon: <HomeOutlined />, label: "Dashboard" },
+  { path: "/admin/categories", icon: <TableOutlined />, label: "Categories" },
   { path: "/admin/users", icon: <UserOutlined />, label: "Users" },
   { path: "/admin/orders", icon: <ShoppingCartOutlined />, label: "Orders" },
   { path: "/admin/settings", icon: <SettingOutlined />, label: "Settings" },

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import instance from '../../../../../configs/axios';
 import Table from 'antd/es/table/Table';
 import { Link } from 'react-router-dom';
-import { PlusOutlined, DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
+import { PlusOutlined, DeleteOutlined, EditOutlined, SearchOutlined, LoadingOutlined } from '@ant-design/icons';
 import { Button, message, Popconfirm, Input, DatePicker } from 'antd';
 import dayjs from 'dayjs';
 
@@ -63,6 +63,11 @@ const ProductsList = () => {
     }));
 
   const columns = [
+    {
+      title: 'STT',
+      key: 'stt',
+      render: (_: any, __: any, index: number) => index + 1,
+    },
     {
       title: 'Title',
       dataIndex: 'title',
@@ -146,7 +151,7 @@ const ProductsList = () => {
     },
   ];
 
-  if (isLoading) return <div className="text-center text-lg">Loading...</div>;
+  if (isLoading) return <div className="text-center text-lg"><LoadingOutlined /></div>;
   if (isError) return <div className="text-center text-red-500">Error fetching products.</div>;
 
   return (
