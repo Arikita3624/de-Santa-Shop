@@ -150,5 +150,31 @@
       "id": 5,
       "updatedAt": "2025-02-25T07:31:17.113Z"
     }
+  ],
+  "users": [
+    {
+      "username": "imadmin",
+      "password": "admin123",
+      "email": "admin@gmail.com",
+      "telephone": 394879813,
+      "roleID": 1
+    },
+    {
+      "username": "user2",
+      "password": "user2123",
+      "email": "user2@gmail.com",
+      "telephone": 123456789,
+      "roleID": 2
+    }
+  ],
+  "role": [
+     {
+      "id": 1,
+      "name": "Admin"
+     },
+     {
+      "id": 2,
+      "name": "User"
+     }
   ]
 }

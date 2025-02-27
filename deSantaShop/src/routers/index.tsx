@@ -9,6 +9,7 @@ import ProductEdit from '../components/Views/Admin/AdminPages/products/ProductEd
 import CategoriesList from '../components/Views/Admin/AdminPages/categories/CategoriesList'
 import CategoryAdd from '../components/Views/Admin/AdminPages/categories/CategoryAdd'
 import CategoryEdit from '../components/Views/Admin/AdminPages/categories/CategoryEdit'
+import LayoutClient from '../components/Layouts/LayoutClient'
 
 type Props = {}
 
@@ -16,7 +17,7 @@ const Router = (props: Props) => {
   return (
     <>
        <Routes>
-           <Route index element={<h1>Client</h1>}>
+           <Route index element={<LayoutClient/>}>
            </Route>
            <Route path='admin' element={<LayoutAdmin/>}>
               {/* Products*/}
