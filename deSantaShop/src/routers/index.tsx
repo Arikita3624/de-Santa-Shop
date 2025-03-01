@@ -10,6 +10,7 @@ import CategoriesList from '../components/Views/Admin/AdminPages/categories/Cate
 import CategoryAdd from '../components/Views/Admin/AdminPages/categories/CategoryAdd'
 import CategoryEdit from '../components/Views/Admin/AdminPages/categories/CategoryEdit'
 import LayoutClient from '../components/Layouts/LayoutClient'
+import HomePage from '../components/Views/Client/Pages/HomePage'
 
 type Props = {}
 
@@ -17,7 +18,8 @@ const Router = (props: Props) => {
   return (
     <>
        <Routes>
-           <Route index element={<LayoutClient/>}>
+           <Route path='/' element={<LayoutClient/>}>
+              <Route index element={<HomePage/>}/>
            </Route>
            <Route path='admin' element={<LayoutAdmin/>}>
               {/* Products*/}

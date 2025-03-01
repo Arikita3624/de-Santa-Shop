@@ -48,8 +48,8 @@ const HeaderClient = () => {
                </div>
             </div>
         </div>
-        <div className='banner'>
-            <img src="https://github.com/duyhungDev24/Vue/blob/main/Rim%20Chalesto/src/assets/Images/Banners/banner3.jpg?raw=true" alt="banner"  className='w-full'/>
+        <div className='banner mt-6'>
+            <img src="https://github.com/duyhungDev24/Vue/blob/main/Rim%20Chalesto/src/assets/Images/Banners/banner3.jpg?raw=true" alt="banner"  className='w-full h-[600px] object-cover'/>
         </div>
     </div>
   )
