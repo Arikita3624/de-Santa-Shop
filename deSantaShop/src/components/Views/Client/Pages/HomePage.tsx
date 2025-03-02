@@ -199,6 +199,41 @@ const HomePage = () => {
                     </div>
                 </div>
         </div>
+        <div className='w-full mx-auto px-4 py-8'>
+            <div className='text-center mb-6'>
+                <h4 className='text-2xl font-bold'>News</h4>
+            </div>
+            <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
+                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
+                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
+                    <div className='p-4 text-center'>
+                        <h5 className='font-bold text-lg'>New 1</h5>
+                        <p className='text-gray-600 mt-2'>Description</p>
+                    </div>
+                </div>
+                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
+                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
+                    <div className='p-4 text-center'>
+                        <h5 className='font-bold text-lg'>New 1</h5>
+                        <p className='text-gray-600 mt-2'>Description</p>
+                    </div>
+                </div>
+                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
+                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
+                    <div className='p-4 text-center'>
+                        <h5 className='font-bold text-lg'>New 1</h5>
+                        <p className='text-gray-600 mt-2'>Description</p>
+                    </div>
+                </div>
+                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
+                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
+                    <div className='p-4 text-center'>
+                        <h5 className='font-bold text-lg'>New 1</h5>
+                        <p className='text-gray-600 mt-2'>Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
   )
 }
