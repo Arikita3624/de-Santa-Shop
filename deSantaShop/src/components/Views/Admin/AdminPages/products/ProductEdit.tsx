@@ -15,7 +15,7 @@ type FieldType = {
   description?: string;
   categoryID?: number;
   quantity?: number;
-  count?: number;
+  discount?: number;
 };
 
 const ProductEdit = () => {
@@ -125,9 +125,8 @@ const ProductEdit = () => {
             rules={[{ required: true, message: "Please select category!" }]}
           >
             <Select placeholder="Choose category" className="w-full">
-              {categoriesResponse?.map((category: any) => (
-                <Select.Option key={category.id} value={category.id}>
-                  {category.name}
+              {categoriesResponse?.map((category: string | any) => (
+                <Select.Option key={category.id} value={category.id}> {category.name}
                 </Select.Option>
               ))}
             </Select>
@@ -142,8 +141,8 @@ const ProductEdit = () => {
           </FormItem>
 
           <FormItem<FieldType>
-            label="Count"
-            name="count"
+            label="Discount"
+            name="discount"
             rules={[{ required: true, message: "Please input count!" }]}
           >
             <InputNumber className="w-full" />

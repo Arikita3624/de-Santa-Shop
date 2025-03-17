@@ -109,9 +109,9 @@ const ProductsList = () => {
       key: 'quantity',
     },
     {
-      title: 'Count',
-      dataIndex: 'count',
-      key: 'count',
+      title: 'Discount',
+      dataIndex: 'discount',
+      key: 'discount',
     },
     {
       title: 'Created At',

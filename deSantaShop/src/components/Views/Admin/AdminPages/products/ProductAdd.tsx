@@ -15,7 +15,7 @@ type FieldType = {
   description?: string;
   categoryID?: number;
   quantity?: number;
-  count?: number;
+  discount?: number;
 };
 
 const ProductAdd = () => {
@@ -110,10 +110,11 @@ const ProductAdd = () => {
             name="categoryID"
             rules={[{ required: true, message: "Please select category!" }]}
           >
-            <Select placeholder="Choose category" className="w-full">
-              <Select.Option value={1}>Category 1</Select.Option>
-              <Select.Option value={2}>Category 2</Select.Option>
-              <Select.Option value={3}>Category 3</Select.Option>
+            <Select placeholder="Choose category" className="w-full" disabled={isLoading}>
+              {categoriesData?.data.map((category: string | any) => (
+                <Select.Option key={category.id} value={category.id}> {category.name}
+                </Select.Option>
+              ))}
             </Select>
           </FormItem>
 
@@ -126,8 +127,8 @@ const ProductAdd = () => {
           </FormItem>
 
           <FormItem<FieldType>
-            label="Count"
-            name="count"
+            label="Discount"
+            name="discount"
             rules={[{ required: true, message: "Please input count!" }]}
           >
             <InputNumber className="w-full" />

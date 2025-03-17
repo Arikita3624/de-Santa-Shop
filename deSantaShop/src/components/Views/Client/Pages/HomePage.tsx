@@ -1,241 +1,201 @@
-import React from 'react'
-import CountdownTimer from '../Support/CountdownTimer'
+import React, { useState } from 'react';
+import CountdownTimer from '../Support/CountdownTimer';
+import { useQuery } from '@tanstack/react-query';
+import instance from '../../../../configs/axios';
 
-
-const HomePage = () => {
-
-  return (
-    <div>
-        {/*Promotion */}
-        <div className='w-full flex justify-center items-center mt-10 mb-10'>
-            <div className='w-1/2 border-t border-black'></div>
-                <h2 className='text-2xl font-semibold mx-4 whitespace-nowrap flex-shrink-0'>PROMOTIONAL TODAY</h2>
-            <div className='w-1/2 border-t border-black'></div>
-        </div>
-        {/*Banner Promotional */}
-        <div className='banner w-full flex justify-center'>
-            <img src="https://hstatic.net/744/1000088744/1000124945/banner_lena3_1.jpg?v=176" alt="banner-promotional" className='w-full'/>
-        </div>
-        {/*Policy */}
-        <div className='w-full flex justify-center gap-4 mt-8 mb-8'>            <div className='w-1/3 border border-black p-8 flex items-center justify-center'>
-                <img src="https://hstatic.net/744/1000088744/1000124945/policy_1.png?v=176" alt="Free Shipping" className="w-10 h-10 mr-4" />
-                <h3 className='text-2xl font-semibold'>FREE SHIPPING</h3>
-            </div>
-            <div className='w-1/3 border border-black p-8 flex items-center justify-center'>
-                <img src="https://hstatic.net/744/1000088744/1000124945/policy_1.png?v=176" alt="Support 24/7" className="w-10 h-10 mr-4" />
-                <h3 className='text-2xl font-semibold'>SUPPORT 24/7 SERVICES</h3>
-            </div>
-            <div className='w-1/3 border border-black p-8 flex items-center justify-center'>
-                <img src="https://hstatic.net/744/1000088744/1000124945/policy_1.png?v=176" alt="Refund 100%" className="w-10 h-10 mr-4" />
-                <h3 className='text-2xl font-semibold'>REFUND 100%</h3>
-            </div>
-        </div>
-        {/*Product Menu */}
-        <div className='flex items-center justify-between w-full border-b pb-2'>
-                <div className='flex space-x-4'>
-                    <button className='font-bold text-black hover:text-gray-400 transition'>NEW PRODUCTS</button>
-                        <span className='text-gray-400'></span>
-                    <button className='font-bold text-black hover:text-gray-400 transition'>BEST SALE</button>
-                        <span className='text-gray-400'></span>
-                    <button className='font-bold text-black hover:text-gray-400 transition'>PROMOTIONAL</button>
-                </div>
-                    <button className='bg-black text-white px-4 py-1 uppercase font-bold hover:bg-gray-400 transition'>SEE MORE</button>
-        </div>
-        {/*Product List */}
-        <div className='mx-auto p-4 w-full'>
-                <div className='grid grid-cols-4 gap-6'>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <div className='mb-8 mt-4'>
-            <CountdownTimer />
-        </div>
-        {/*Product Menu */}
-        <div className='flex items-center justify-between w-full border-b pb-2'>
-                <div className='flex space-x-4'>
-                    <button className='font-bold text-black hover:text-gray-400 transition'>FEMALE FASHION</button>
-                        <span className='text-gray-400'></span>
-                    <button className='font-bold text-black hover:text-gray-400 transition'>MALE FASHION</button>
-                        <span className='text-gray-400'></span>
-                    <button className='font-bold text-black hover:text-gray-400 transition'>TOOLS</button>
-              </div>
-              <button className='bg-black text-white px-4 py-1 uppercase font-bold hover:bg-gray-400 transition'>SEE MORE</button>
-         </div>
-        {/*Product List */}
-        <div className='mx-auto p-4 w-full'>
-                <div className='grid grid-cols-4 gap-6'>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className='grid grid-cols-4 gap-6'>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='relative bg-white shadow-lg p-2'>
-                        <img src="https://images.unsplash.com/photo-1571513800374-df1bbe650e56?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-[350px] object-cover'/>
-                        <span className='absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-sm font-bold'>SALE</span>
-                        <div className='text-center'>
-                            <h3 className='text-[15px] font-semibold text-gray-700'>Product Name</h3>
-                            <div className='flex items-center justify-center gap-2 mt-1'>
-                                <p className='text-[26px] font-semibold text-black leading-[1]'>20<span className='text-[18px]'>$</span></p>
-                                <p className='text-gray-400 line-through text-[18px] leading-[1]'>200<span className='text-[18px]'>$</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        </div>
-        <div className='w-full mx-auto px-4 py-8'>
-            <div className='text-center mb-6'>
-                <h4 className='text-2xl font-bold'>News</h4>
-            </div>
-            <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
-                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
-                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
-                    <div className='p-4 text-center'>
-                        <h5 className='font-bold text-lg'>New 1</h5>
-                        <p className='text-gray-600 mt-2'>Description</p>
-                    </div>
-                </div>
-                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
-                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
-                    <div className='p-4 text-center'>
-                        <h5 className='font-bold text-lg'>New 1</h5>
-                        <p className='text-gray-600 mt-2'>Description</p>
-                    </div>
-                </div>
-                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
-                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
-                    <div className='p-4 text-center'>
-                        <h5 className='font-bold text-lg'>New 1</h5>
-                        <p className='text-gray-600 mt-2'>Description</p>
-                    </div>
-                </div>
-                <div className='max-w-xs bg-white rounded-lg shadow-lg overflow-hidden'>
-                    <img src="https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg" alt="error" className="w-full h-48 object-cover"/>
-                    <div className='p-4 text-center'>
-                        <h5 className='font-bold text-lg'>New 1</h5>
-                        <p className='text-gray-600 mt-2'>Description</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  )
+interface Products {
+    id: number | string;
+    title: string;
+    price: number;
+    thumbnail: string;
+    description: string;
+    categoryID: number;
+    quantity: number;
+    count: number;
 }
 
-export default HomePage
+interface Category {
+    id: number | string;
+    name: string;
+}
+
+interface News {
+    id: number | string;
+    title: string;
+    content: string;
+    image: string;
+}
+
+const HomePage = () => {
+    const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
+
+    const { data: Products, isLoading, isError } = useQuery({
+        queryKey: ["products"],
+        queryFn: async () => {
+            const response = await instance.get("/products");
+            return response.data;
+        },
+    });
+
+    const { data: Categories } = useQuery({
+        queryKey: ["categories"],
+        queryFn: async () => {
+            const response = await instance.get("/categories");
+            return response.data;
+        }
+    });
+
+    const { data: News } = useQuery({
+        queryKey: ["news"],
+        queryFn: async () => {
+            const response = await instance.get("/news");
+            return response.data;
+        }
+    });
+
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error</div>;
+
+    const filteredProducts = selectedCategory
+        ? Products?.filter((product: Products) => product.categoryID === selectedCategory)
+        : Products;
+
+    return (
+        <div className="max-w-7xl mx-auto px-4">
+            {/* Danh mục sản phẩm */}
+            <div className="flex items-center justify-between border-b pb-2">
+                <div className="flex space-x-8">
+                    <button className="font-bold text-black hover:text-gray-400 transition">
+                        NEW PRODUCTS
+                    </button>
+                    <button className="font-bold text-black hover:text-gray-400 transition">
+                        BEST SALE
+                    </button>
+                    <button className="font-bold text-black hover:text-gray-400 transition">
+                        PROMOTIONAL
+                    </button>
+                </div>
+                <button className="bg-black text-white px-6 py-2 uppercase font-bold hover:bg-gray-700 transition">
+                    SEE MORE
+                </button>
+            </div>
+
+            {/* Danh sách sản phẩm */}
+            <div className="py-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {Products?.slice(0, 4).map((product: Products) => (
+                        <div
+                            key={product.id}
+                            className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+                        >
+                            {/* Ảnh sản phẩm */}
+                            <div className="relative h-[350px] w-full">
+                                <img
+                                    src={product.thumbnail}
+                                    alt={product.title}
+                                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                                <span className="absolute top-4 right-4 bg-white text-black px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    SALE
+                                </span>
+                            </div>
+                            {/* Thông tin sản phẩm */}
+                            <div className="p-4 text-center">
+                                <h3 className="text-lg font-semibold">{product.title}</h3>
+                                <div className="flex items-center justify-center gap-2 mt-2">
+                                    <p className="text-xl font-bold text-black">
+                                        {product.price}
+                                        <span className="text-sm">$</span>
+                                    </p>
+                                    <p className="text-gray-400 line-through text-sm">
+                                        {product.price * 100}
+                                        <span className="text-sm">$</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex items-center justify-between border-b pb-2">
+                <div className="flex gap-6">
+                    {Categories?.slice(0, 3).map((category: Category) => (
+                        <span
+                           key={category.id}
+                           className={`cursor-pointer font-bold uppercase ${
+                            selectedCategory === category.id ? "text-red-500" : "text-black"
+                             }`}
+                           onClick={() => setSelectedCategory(selectedCategory === category.id ? null : (category.id as number))}
+                        >
+                           {category.name}
+                        </span>
+                    ))}
+                </div>
+                <button className="bg-black text-white px-6 py-2 uppercase font-bold hover:bg-gray-700 transition">
+                    SEE MORE
+                </button>
+            </div>
+
+            <div className="py-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {filteredProducts?.slice(0, 8).map((product: Products) => (
+                        <div
+                            key={product.id}
+                            className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+                        >
+                            <div className="relative h-[300px] w-full">
+                                <img
+                                    src={product.thumbnail}
+                                    alt={product.title}
+                                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                                />
+                                <span className="absolute top-4 right-4 bg-white text-black px-3 py-1 rounded-full text-xs font-bold shadow-md">
+                                    SALE
+                                </span>
+                            </div>
+                            <div className="p-4 text-center space-y-2">
+                                <h3 className="text-lg font-semibold text-gray-900">{product.title}</h3>
+                                <div className="flex items-center justify-center gap-2">
+                                    <p className="text-xl font-bold text-black-500">
+                                        {product.price}
+                                        <span className="text-sm">$</span>
+                                    </p>
+                                    <p className="text-gray-400 line-through text-sm">
+                                        {product.price * 100}
+                                        <span className="text-sm">$</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="mb-8 mt-4">
+                <CountdownTimer />
+            </div>
+
+            <div className="w-full px-4 py-8 mb-10">
+                <div className="mb-6 flex items-center">
+                    <h4 className="text-3xl font-semibold p-5 border-l-4 border-black pl-4">
+                        News
+                    </h4>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    {News?.slice(0, 4).map((news: News) => (
+                        <div key={news.id} className="max-w-xs bg-white rounded-lg shadow-lg overflow-hidden">
+                            <img src={news.image} alt="error" className="w-full h-48 object-cover" />
+                            <div className="p-4 text-center">
+                                <h5 className="font-bold text-lg">{news.title}</h5>
+                                <p className="text-gray-600 mt-2">{news.content}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default HomePage;
