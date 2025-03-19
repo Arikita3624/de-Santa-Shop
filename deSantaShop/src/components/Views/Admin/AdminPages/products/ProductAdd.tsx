@@ -1,6 +1,6 @@
 import { RollbackOutlined } from "@ant-design/icons";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { Input, InputNumber, Select, Button, message } from "antd";
+import { Input, InputNumber, Select, Button, message, Spin, Alert } from "antd";
 import Form, { FormProps, useForm } from "antd/es/form/Form";
 import FormItem from "antd/es/form/FormItem";
 import TextArea from "antd/es/input/TextArea";
@@ -20,45 +20,39 @@ type FieldType = {
 
 const ProductAdd = () => {
   const [messageApi, contextHolder] = message.useMessage();
-  const [ form ] = useForm();
+  const [form] = useForm();
 
-  const { data: categoriesData, isLoading, isError } = useQuery({
-      queryKey:["categories"],
-      queryFn: async () => {
-        const data = await instance.get('/categories');
-        return data;
-      },
-  })
-  console.log(categoriesData);
+  // Fetch categories
+  const { data: categories = [], isLoading, isError } = useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const response = await instance.get("/categories");
+      return response.data; // Chỉ trả về mảng `categories`
+    },
+  });
 
-  const { mutate } = useMutation({
-    mutationFn: async (product:FieldType) => {
+  // Mutation để thêm sản phẩm
+  const { mutate, isLoading: isSubmitting } = useMutation({
+    mutationFn: async (product: FieldType) => {
       try {
         return await instance.post("/products", product);
       } catch (error) {
-        throw new Error('Failed to add product');
+        throw new Error("Failed to add product");
       }
     },
     onSuccess: () => {
-      messageApi.open({
-        type: 'success',
-        content: 'Product added successfully!'
-      });
+      messageApi.success("Product added successfully!");
       form.resetFields();
     },
-
     onError: () => {
-      messageApi.open({
-        type: 'error',
-        content: 'Failed to add product'
-    })}
+      messageApi.error("Failed to add product");
+    },
   });
-  const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
+
+  const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
     mutate(values);
   };
 
-  if( isLoading ) return <div>Loading...</div>;
-  if( isError ) return <div>Error...</div>;
   return (
     <div className="p-6 bg-white rounded-lg shadow-md">
       {contextHolder}
@@ -71,85 +65,97 @@ const ProductAdd = () => {
           </Button>
         </Link>
       </div>
+
+      {/* Xử lý loading và error */}
+      {isLoading && <Spin size="large" />}
+      {isError && <Alert message="Failed to load categories" type="error" />}
+
       {/* Form */}
-      <Form
-        form={form}
-        name="basic"
-        layout="vertical"
-        initialValues={{ remember: true }}
-        autoComplete="off"
-        onFinish={onFinish}
-      >
-        <div className="grid grid-cols-2 gap-4">
-          <FormItem<FieldType>
-            label="Title Product"
-            name="title"
-            rules={[{ required: true, message: "Please input title product!" }]}
-          >
-            <Input className="w-full" />
-          </FormItem>
-
-          <FormItem<FieldType>
-            label="Price Product"
-            name="price"
-            rules={[{ required: true, message: "Please input price product!" }]}
-          >
-            <InputNumber className="w-full" />
-          </FormItem>
-
-          <FormItem<FieldType>
-            label="Thumbnail Product"
-            name="thumbnail"
-            rules={[{ required: true, message: "Please input thumbnail URL!" }]}
-          >
-            <Input className="w-full" />
-          </FormItem>
-
-          <FormItem<FieldType>
-            label="Category"
-            name="categoryID"
-            rules={[{ required: true, message: "Please select category!" }]}
-          >
-            <Select placeholder="Choose category" className="w-full" disabled={isLoading}>
-              {categoriesData?.data.map((category: string | any) => (
-                <Select.Option key={category.id} value={category.id}> {category.name}
-                </Select.Option>
-              ))}
-            </Select>
-          </FormItem>
-
-          <FormItem<FieldType>
-            label="Quantity"
-            name="quantity"
-            rules={[{ required: true, message: "Please input quantity!" }]}
-          >
-            <InputNumber className="w-full" />
-          </FormItem>
-
-          <FormItem<FieldType>
-            label="Discount"
-            name="discount"
-            rules={[{ required: true, message: "Please input count!" }]}
-          >
-            <InputNumber className="w-full" />
-          </FormItem>
-        </div>
-
-        <FormItem<FieldType>
-          label="Description"
-          name="description"
-          rules={[{ required: true, message: "Please input description!" }]}
+      {!isLoading && !isError && (
+        <Form
+          form={form}
+          name="basic"
+          layout="vertical"
+          initialValues={{ remember: true }}
+          autoComplete="off"
+          onFinish={onFinish}
         >
-          <TextArea rows={4} className="w-full" />
-        </FormItem>
+          <div className="grid grid-cols-2 gap-4">
+            <FormItem<FieldType>
+              label="Title Product"
+              name="title"
+              rules={[{ required: true, message: "Please input title product!" }]}
+            >
+              <Input className="w-full" />
+            </FormItem>
 
-        {/* Submit Button */}
-        <FormItem>
-          <Button type="primary" htmlType="submit" className="w-full">
-            Add Product
-          </Button>
-        </FormItem>
-      </Form>
+            <FormItem<FieldType>
+              label="Price Product"
+              name="price"
+              rules={[{ required: true, message: "Please input price product!" }]}
+            >
+              <InputNumber className="w-full" />
+            </FormItem>
+
+            <FormItem<FieldType>
+              label="Thumbnail Product"
+              name="thumbnail"
+              rules={[{ required: true, message: "Please input thumbnail URL!" }]}
+            >
+              <Input className="w-full" />
+            </FormItem>
+
+            <FormItem<FieldType>
+              label="Category"
+              name="categoryID"
+              rules={[{ required: true, message: "Please select category!" }]}
+            >
+              <Select placeholder="Choose category" className="w-full">
+                {categories.length > 0 ? (
+                  categories.map((category: any) => (
+                    <Select.Option key={category.id} value={category.id}>
+                      {category.name}
+                    </Select.Option>
+                  ))
+                ) : (
+                  <Select.Option disabled>No categories available</Select.Option>
+                )}
+              </Select>
+            </FormItem>
+
+            <FormItem<FieldType>
+              label="Quantity"
+              name="quantity"
+              rules={[{ required: true, message: "Please input quantity!" }]}
+            >
+              <InputNumber className="w-full" />
+            </FormItem>
+
+            <FormItem<FieldType>
+              label="Discount"
+              name="discount"
+              rules={[{ required: true, message: "Please input discount!" }]}
+            >
+              <InputNumber className="w-full" />
+            </FormItem>
+          </div>
+
+          <FormItem<FieldType>
+            label="Description"
+            name="description"
+            rules={[{ required: true, message: "Please input description!" }]}
+          >
+            <TextArea rows={4} className="w-full" />
+          </FormItem>
+
+          {/* Submit Button */}
+          <FormItem>
+            <Button type="primary" htmlType="submit" className="w-full" loading={isSubmitting}>
+              {isSubmitting ? "Adding..." : "Add Product"}
+            </Button>
+          </FormItem>
+        </Form>
+      )}
     </div>
   );
 };

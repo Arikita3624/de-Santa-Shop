@@ -11,6 +11,9 @@ import CategoryAdd from '../components/Views/Admin/AdminPages/categories/Categor
 import CategoryEdit from '../components/Views/Admin/AdminPages/categories/CategoryEdit'
 import LayoutClient from '../components/Layouts/LayoutClient'
 import HomePage from '../components/Views/Client/Pages/HomePage'
+import NewsList from '../components/Views/Admin/AdminPages/news/NewsList'
+import NewsAdd from '../components/Views/Admin/AdminPages/news/NewsAdd'
+import NewsEdit from '../components/Views/Admin/AdminPages/news/NewsEdit'
 
 type Props = {}
 
@@ -30,6 +33,10 @@ const Router = (props: Props) => {
               <Route path='categories' element={<CategoriesList/>}/>
               <Route path='categories/add' element={<CategoryAdd/>}/>
               <Route path='categories/:id/edit' element={<CategoryEdit/>}/>
+              {/*News */}
+              <Route path='news' element={<NewsList/>}/>
+              <Route path='news/add' element={<NewsAdd/>}/>
+              <Route path='news/:id/edit' element={<NewsEdit/>}/>
            </Route>
        </Routes>
     </>

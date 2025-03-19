@@ -62,7 +62,6 @@ const HomePage = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4">
-            {/* Danh mục sản phẩm */}
             <div className="flex items-center justify-between border-b pb-2">
                 <div className="flex space-x-8">
                     <button className="font-bold text-black hover:text-gray-400 transition">
@@ -80,7 +79,6 @@ const HomePage = () => {
                 </button>
             </div>
 
-            {/* Danh sách sản phẩm */}
             <div className="py-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {Products?.slice(0, 4).map((product: Products) => (
@@ -88,7 +86,6 @@ const HomePage = () => {
                             key={product.id}
                             className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
                         >
-                            {/* Ảnh sản phẩm */}
                             <div className="relative h-[350px] w-full">
                                 <img
                                     src={product.thumbnail}
@@ -99,7 +96,6 @@ const HomePage = () => {
                                     SALE
                                 </span>
                             </div>
-                            {/* Thông tin sản phẩm */}
                             <div className="p-4 text-center">
                                 <h3 className="text-lg font-semibold">{product.title}</h3>
                                 <div className="flex items-center justify-center gap-2 mt-2">
@@ -124,7 +120,7 @@ const HomePage = () => {
                         <span
                            key={category.id}
                            className={`cursor-pointer font-bold uppercase ${
-                            selectedCategory === category.id ? "text-red-500" : "text-black"
+                            selectedCategory === category.id ? "text-yellow-300" : "text-black"
                              }`}
                            onClick={() => setSelectedCategory(selectedCategory === category.id ? null : (category.id as number))}
                         >

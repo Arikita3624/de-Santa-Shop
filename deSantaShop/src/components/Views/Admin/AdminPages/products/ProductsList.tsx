@@ -4,7 +4,7 @@ import instance from '../../../../../configs/axios';
 import Table from 'antd/es/table/Table';
 import { Link } from 'react-router-dom';
 import { PlusOutlined, DeleteOutlined, EditOutlined, SearchOutlined, LoadingOutlined } from '@ant-design/icons';
-import { Button, message, Popconfirm, Input, DatePicker } from 'antd';
+import { Button, message, Popconfirm, Input, DatePicker, Select } from 'antd';
 import dayjs from 'dayjs';
 
 const ProductsList = () => {
@@ -13,6 +13,7 @@ const ProductsList = () => {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const { isLoading, isError, data } = useQuery({
     queryKey: ['products'],
@@ -48,19 +49,22 @@ const ProductsList = () => {
       });
     },
   });
+
   const filteredData = data
     ?.filter((product: any) =>
-      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+      searchTerm ? product.title.toLowerCase().includes(searchTerm.toLowerCase()) : true
     )
     ?.filter((product: any) =>
-      selectedDate
-        ? dayjs(product.createdAt).isSame(selectedDate, 'day')
-        : true
+      selectedDate ? dayjs(product.createdAt).isSame(selectedDate, "day") : true
+    )
+    ?.filter((product: any) =>
+      selectedCategory !== null ? product.categoryID === selectedCategory : true
     )
     ?.map((product: any) => ({
       key: product.id,
       ...product,
     }));
+
 
   const columns = [
     {
@@ -79,11 +83,6 @@ const ProductsList = () => {
       key: 'price',
     },
     {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-    },
-    {
       title: 'Thumbnail',
       dataIndex: 'thumbnail',
       key: 'thumbnail',
@@ -96,35 +95,33 @@ const ProductsList = () => {
       dataIndex: 'categoryID',
       key: 'categoryID',
       render: (categoryID: number) => {
-        const category = Array.isArray(categories)
-          ? categories.find((cate: any) => cate.id === categoryID)
-          : null;
-
+        const category = categories?.find((cate: any) => cate.id === categoryID);
         return category ? category.name : 'Unknown';
       },
-    },
-    {
-      title: 'Quantity',
-      dataIndex: 'quantity',
-      key: 'quantity',
-    },
-    {
-      title: 'Discount',
-      dataIndex: 'discount',
-      key: 'discount',
     },
     {
       title: 'Created At',
       dataIndex: 'createdAt',
       key: 'createdAt',
-      render: (date: string) => dayjs(date).format('DD/MM/YYYY'),
+      render: (date: string) => (
+        <div>
+          <span>{dayjs(date).format('DD/MM/YYYY')}</span>
+          <br />
+          <span>{dayjs(date).format('HH:mm')}</span>
+        </div>
+      ),
     },
     {
-      title: "Updated At",
-      dataIndex: "updatedAt",
-      key: "updatedAt",
-      render: (date: string) =>
-        date ? dayjs(date).format("DD/MM/YYYY") : "No updates",
+      title: 'Updated At',
+      dataIndex: 'updatedAt',
+      key: 'updatedAt',
+      render: (date: string) => (
+        <div>
+          <span>{dayjs(date).format('DD/MM/YYYY')}</span>
+          <br />
+          <span>{dayjs(date).format('HH:mm')}</span>
+        </div>
+      ),
     },
     {
       title: 'Actions',
@@ -160,9 +157,7 @@ const ProductsList = () => {
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold">Products List</h1>
         <Link to="/admin/products/add">
-          <Button type="primary" icon={<PlusOutlined />}>
-            Add Product
-          </Button>
+          <Button type="primary" icon={<PlusOutlined />}>Add Product</Button>
         </Link>
       </div>
       <div className="flex gap-4 mb-4">
@@ -173,20 +168,31 @@ const ProductsList = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-64"
         />
-        <DatePicker
-          onChange={(date) => setSelectedDate(date)}
-          placeholder="Filter by date"
-        />
-        <Button onClick={() => { setSearchTerm(''); setSelectedDate(null); }}>
+        <DatePicker onChange={(date) => setSelectedDate(date)} placeholder="Filter by date" />
+        <Select
+          placeholder="Filter by category"
+          value={selectedCategory}
+          onChange={(value) => setSelectedCategory(value)}
+          className="w-64"
+          allowClear
+        >
+          {categories && Array.isArray(categories) ? (
+            categories.map((category) => (
+              <Select.Option key={category.id} value={category.id}>
+                {category.name}
+              </Select.Option>
+            ))
+          ) : (
+            <Select.Option disabled>Loading categories...</Select.Option>
+          )}
+        </Select>
+
+
+        <Button onClick={() => { setSearchTerm(''); setSelectedDate(null); setSelectedCategory(null); }}>
           Reset Filters
         </Button>
       </div>
-      <Table
-        dataSource={filteredData}
-        columns={columns}
-        pagination={{ pageSize: 5 }}
-        bordered
-      />
+      <Table dataSource={filteredData} columns={columns} pagination={{ pageSize: 5 }} bordered />
     </div>
   );
 };

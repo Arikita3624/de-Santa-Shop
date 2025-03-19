@@ -1,16 +1,16 @@
 {
   "products": [
     {
-      "title": "Product 1 ",
+      "title": "Product 1 updated",
       "price": 1000000,
       "thumbnail": "https://picsum.photos/id/870/200/300?grayscale&blur=2",
       "categoryID": 1,
       "quantity": 10000,
-      "description": "Product 1 description updated 3",
       "discount": 10,
+      "description": "Product 1 description updated 3",
       "id": 1,
       "createdAt": "2025-03-11T05:39:13.075Z",
-      "updatedAt": "2025-03-11T05:39:13.075Z"
+      "updatedAt": "2025-03-19T03:40:22.446Z"
     },
     {
       "title": "Product 2 updated",
@@ -117,6 +117,16 @@
       "discount": 1,
       "description": "Product 10",
       "id": 15
+    },
+    {
+      "title": "Product 11",
+      "price": 110000,
+      "thumbnail": "https://picsum.photos/id/870/200/300?grayscale&blur=2",
+      "categoryID": 4,
+      "quantity": 10,
+      "discount": 10,
+      "description": "Product 11",
+      "id": 16
     }
   ],
   "categories": [
@@ -274,7 +284,9 @@
       "id": 1,
       "title": "News 1",
       "content": "Content 1",
+      "comment": 100,
       "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
+      "views": 10000,
       "createdAt": "2024-10-18T06:25:39.000Z",
       "updatedAt": "2024-10-18T06:25:39.000Z"
     },
@@ -282,7 +294,9 @@
       "id": 2,
       "title": "News 2",
       "content": "Content 2",
+      "comment": 50,
       "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
+      "views": 5000,
       "createdAt": "2024-10-18T06:25:39.000Z",
       "updatedAt": "2024-10-18T06:25:39.000Z"
     },
@@ -290,17 +304,27 @@
       "id": 3,
       "title": "News 3",
       "content": "Content 3",
+      "comment": 30,
       "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
+      "views": 3000,
       "createdAt": "2024-10-18T06:25:39.000Z",
       "updatedAt": "2024-10-18T06:25:39.000Z"
     },
     {
-      "id": 4,
-      "title": "News 4",
-      "content": "Content 4",
+      "title": "News 4 updated",
       "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
-      "createdAt": "2024-10-18T06:25:39.000Z",
-      "updatedAt": "2024-10-18T06:25:39.000Z"
+      "views": 4000,
+      "content": "Content 4",
+      "id": 4,
+      "updatedAt": "2025-03-18T15:56:51.548Z"
+    },
+    {
+      "title": "News 5 updated",
+      "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
+      "content": "Content 5",
+      "views": 5000,
+      "id": 5,
+      "updatedAt": "2025-03-18T15:56:31.935Z"
     }
   ]
 }
