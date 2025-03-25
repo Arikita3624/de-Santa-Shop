@@ -62,6 +62,34 @@ const HomePage = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4">
+            <div className="bg-white py-8 m-6">
+                <div className="text-center mb-12">
+                    <h3 className="text-3xl font-bold text-gray-800 uppercase">PROMOTIONAL TODAY</h3>
+                </div>
+
+                <div className="flex justify-center mb-6">
+                    <img src="https://hstatic.net/744/1000088744/1000124945/banner_lena3_1.jpg?v=176" alt="banner" className="w-[100%] max-w-[1600px] rounded-lg shadow-lg object-cover" />
+                </div>
+
+                <div className="flex justify-center space-x-10 text-gray-700 font-semibold text-lg">
+                    <a href="#" className="flex flex-col items-center">
+                        <i className="fa-solid fa-truck text-3xl text-blue-500 mb-2"></i>
+                        <span>FREE SHIP</span>
+                    </a>
+                    <a href="#" className="flex flex-col items-center">
+                        <i className="fa-solid fa-headset text-3xl text-green-500 mb-2"></i>
+                        <span>SUPPORT 24/7</span>
+                    </a>
+                    <a href="#" className="flex flex-col items-center">
+                        <i className="fa-solid fa-rotate-left text-3xl text-red-500 mb-2"></i>
+                        <span>REFUND 100%</span>
+                    </a>
+                    <a href="#" className="flex flex-col items-center">
+                        <i className="fa-solid fa-shield text-3xl text-yellow-500 mb-2"></i>
+                        <span>SECURE PAYMENT</span>
+                    </a>
+                </div>
+            </div>
             <div className="flex items-center justify-between border-b pb-2">
                 <div className="flex space-x-8">
                     <button className="font-bold text-black hover:text-gray-400 transition">
@@ -118,13 +146,12 @@ const HomePage = () => {
                 <div className="flex gap-6">
                     {Categories?.slice(0, 3).map((category: Category) => (
                         <span
-                           key={category.id}
-                           className={`cursor-pointer font-bold uppercase ${
-                            selectedCategory === category.id ? "text-yellow-300" : "text-black"
-                             }`}
-                           onClick={() => setSelectedCategory(selectedCategory === category.id ? null : (category.id as number))}
+                            key={category.id}
+                            className={`cursor-pointer font-bold uppercase ${selectedCategory === category.id ? "text-yellow-300" : "text-black"
+                                }`}
+                            onClick={() => setSelectedCategory(selectedCategory === category.id ? null : (category.id as number))}
                         >
-                           {category.name}
+                            {category.name}
                         </span>
                     ))}
                 </div>

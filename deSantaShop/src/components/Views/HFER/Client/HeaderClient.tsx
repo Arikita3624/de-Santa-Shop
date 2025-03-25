@@ -56,7 +56,7 @@ const HeaderClient: React.FC<IHeaderClientProps> = ({ search }) => {
                     <ul className='flex space-x-10 text-base font-medium'>
                         <li><a href="#" className='hover:text-yellow-500 transition duration-300'>Home</a></li>
                         <li><a href="#" className='hover:text-yellow-500 transition duration-300'>About</a></li>
-                        <li><a href="#" className='hover:text-yellow-500 transition duration-300'>Products</a></li>
+                        <li><a href="products-client" className='hover:text-yellow-500 transition duration-300'>Products</a></li>
                         <li><a href="#" className='hover:text-yellow-500 transition duration-300'>Contact</a></li>
                     </ul>
 
@@ -74,11 +74,10 @@ const HeaderClient: React.FC<IHeaderClientProps> = ({ search }) => {
                 </div>
             </div>
 
-            {/* Banner */}
             <div className='banner mt-6 mb-6'>
                 <img src="https://github.com/duyhungDev24/Vue/blob/main/Rim%20Chalesto/src/assets/Images/Banners/banner3.jpg?raw=true"
                     alt="banner"
-                    className='w-full h-[600px] object-cover'/>
+                    className='w-full h-[600px] object-cover' />
             </div>
         </div>
     )

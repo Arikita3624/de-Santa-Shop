@@ -35,29 +35,29 @@ const CategoryEdit = () => {
 
   const { mutate } = useMutation({
     mutationFn: async (category: CategoryType) => {
-      return await instance.put(`/categories/${id}`, category);
+      return await instance.put(`/categories/${id}`, {
+        ...category,
+        updatedAt: new Date().toISOString(),
+      });
     },
     onSuccess: () => {
-      messageApi.open({
-        type: "success",
-        content: "Category updated successfully!",
-      });
+      messageApi.success("Category updated successfully!");
     },
     onError: () => {
-      messageApi.open({
-        type: "error",
-        content: "Failed to update category",
-      });
+      messageApi.error("Failed to update category");
     },
   });
+
 
   const onFinish: FormProps<CategoryType>["onFinish"] = (values) => {
     mutate({
       ...values,
       id: categoryResponse?.id,
+      createdAt: categoryResponse?.createdAt,
       updatedAt: new Date().toISOString(),
     });
   };
+
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading category...</div>;

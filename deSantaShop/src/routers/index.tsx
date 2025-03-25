@@ -14,6 +14,8 @@ import HomePage from '../components/Views/Client/Pages/HomePage'
 import NewsList from '../components/Views/Admin/AdminPages/news/NewsList'
 import NewsAdd from '../components/Views/Admin/AdminPages/news/NewsAdd'
 import NewsEdit from '../components/Views/Admin/AdminPages/news/NewsEdit'
+import ProductsClient from '../components/Views/Client/Pages/ProductsClient'
+import ProductFromCateID from '../components/Views/Admin/AdminPages/products/ProductFromCateID'
 
 type Props = {}
 
@@ -23,9 +25,11 @@ const Router = (props: Props) => {
        <Routes>
            <Route path='/' element={<LayoutClient/>}>
               <Route index element={<HomePage/>}/>
+              <Route path='products-client' element={<ProductsClient/>}/>
            </Route>
            <Route path='admin' element={<LayoutAdmin/>}>
               {/* Products*/}
+              <Route index element={<ProductsList/>}/>
               <Route path='products' element={<ProductsList/>}/>
               <Route path='products/add' element={<ProductAdd/>}/>
               <Route path='products/:id/edit' element={<ProductEdit/>}/>
@@ -33,6 +37,7 @@ const Router = (props: Props) => {
               <Route path='categories' element={<CategoriesList/>}/>
               <Route path='categories/add' element={<CategoryAdd/>}/>
               <Route path='categories/:id/edit' element={<CategoryEdit/>}/>
+              <Route path='categories/:id/products' element={<ProductFromCateID/>}/>
               {/*News */}
               <Route path='news' element={<NewsList/>}/>
               <Route path='news/add' element={<NewsAdd/>}/>

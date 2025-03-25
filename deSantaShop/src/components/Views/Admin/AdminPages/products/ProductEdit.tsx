@@ -68,7 +68,7 @@ const ProductEdit = () => {
     mutate({
       ...values,
       id: productResponse?.id,
-      createdAt: productResponse?.createdAt ?? new Date().toISOString(),
+      createdAt: productResponse?.createdAt,
       updatedAt: new Date().toISOString(),
     });
   };
