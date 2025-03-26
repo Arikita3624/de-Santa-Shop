@@ -56,6 +56,7 @@ const NewsEdit = () => {
         mutate({
             ...values,
             id: newsResponse?.id,
+            createdAt: newsResponse?.createdAt,
             updatedAt: new Date().toISOString(),
         });
     };

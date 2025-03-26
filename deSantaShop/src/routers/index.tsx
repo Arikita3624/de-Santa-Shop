@@ -16,36 +16,41 @@ import NewsAdd from '../components/Views/Admin/AdminPages/news/NewsAdd'
 import NewsEdit from '../components/Views/Admin/AdminPages/news/NewsEdit'
 import ProductsClient from '../components/Views/Client/Pages/ProductsClient'
 import ProductFromCateID from '../components/Views/Admin/AdminPages/products/ProductFromCateID'
+import UserList from '../components/Views/Admin/AdminPages/useradmin/UserList'
+import UserEdit from '../components/Views/Admin/AdminPages/useradmin/UserEdit'
 
 type Props = {}
 
 const Router = (props: Props) => {
-  return (
-    <>
-       <Routes>
-           <Route path='/' element={<LayoutClient/>}>
-              <Route index element={<HomePage/>}/>
-              <Route path='products-client' element={<ProductsClient/>}/>
-           </Route>
-           <Route path='admin' element={<LayoutAdmin/>}>
-              {/* Products*/}
-              <Route index element={<ProductsList/>}/>
-              <Route path='products' element={<ProductsList/>}/>
-              <Route path='products/add' element={<ProductAdd/>}/>
-              <Route path='products/:id/edit' element={<ProductEdit/>}/>
-              {/*Categories */}
-              <Route path='categories' element={<CategoriesList/>}/>
-              <Route path='categories/add' element={<CategoryAdd/>}/>
-              <Route path='categories/:id/edit' element={<CategoryEdit/>}/>
-              <Route path='categories/:id/products' element={<ProductFromCateID/>}/>
-              {/*News */}
-              <Route path='news' element={<NewsList/>}/>
-              <Route path='news/add' element={<NewsAdd/>}/>
-              <Route path='news/:id/edit' element={<NewsEdit/>}/>
-           </Route>
-       </Routes>
-    </>
-  )
+   return (
+      <>
+         <Routes>
+            <Route path='/' element={<LayoutClient />}>
+               <Route index element={<HomePage />} />
+               <Route path='products-client' element={<ProductsClient />} />
+            </Route>
+            <Route path='admin' element={<LayoutAdmin />}>
+               {/* Products*/}
+               <Route index element={<ProductsList />} />
+               <Route path='products' element={<ProductsList />} />
+               <Route path='products/add' element={<ProductAdd />} />
+               <Route path='products/:id/edit' element={<ProductEdit />} />
+               {/*Categories */}
+               <Route path='categories' element={<CategoriesList />} />
+               <Route path='categories/add' element={<CategoryAdd />} />
+               <Route path='categories/:id/edit' element={<CategoryEdit />} />
+               <Route path='categories/:id/products' element={<ProductFromCateID />} />
+               {/*News */}
+               <Route path='news' element={<NewsList />} />
+               <Route path='news/add' element={<NewsAdd />} />
+               <Route path='news/:id/edit' element={<NewsEdit />} />
+               {/*Users */}
+               <Route path='users' element={<UserList/>} />
+               <Route path='users/:id/edit' element={<UserEdit/>} />
+            </Route>
+         </Routes>
+      </>
+   )
 }
 
 export default Router

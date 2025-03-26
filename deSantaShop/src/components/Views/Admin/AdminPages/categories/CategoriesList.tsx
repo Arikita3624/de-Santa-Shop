@@ -59,14 +59,25 @@ const CategoriesList = () => {
       title: 'Created At',
       dataIndex: 'createdAt',
       key: 'createdAt',
-      render: (date: string) => dayjs(date).format('DD/MM/YYYY'),
+      render: (date: string) => (
+        <div>
+          <span>{dayjs(date).format('DD/MM/YYYY')}</span>
+          <br />
+          <span>{dayjs(date).format('HH:mm')}</span>
+        </div>
+      ),
     },
     {
       title: "Updated At",
       dataIndex: "updatedAt",
       key: "updatedAt",
-      render: (date: string) =>
-          date ? dayjs(date).format("DD/MM/YYYY") : "No updates",
+      render: (date: string) => (
+        <div>
+          <span>{dayjs(date).format('DD/MM/YYYY')}</span>
+          <br />
+          <span>{dayjs(date).format('HH:mm')}</span>
+        </div>
+      ),
     },
     {
       title: 'Actions',

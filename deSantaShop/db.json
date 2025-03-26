@@ -49,7 +49,7 @@
       "updatedAt": "2024-10-20T06:25:39.000Z"
     },
     {
-      "title": "Product 5",
+      "title": "Product 5 updated",
       "price": 500000,
       "thumbnail": "https://picsum.photos/id/870/200/300?grayscale&blur=2",
       "categoryID": 1,
@@ -58,7 +58,7 @@
       "description": "Product 5 ",
       "id": 10,
       "createdAt": "2024-10-21T06:25:39.000Z",
-      "updatedAt": "2024-10-21T06:25:39.000Z"
+      "updatedAt": "2025-03-25T13:20:24.113Z"
     },
     {
       "title": "Product 6 updated 1",
@@ -261,21 +261,27 @@
   ],
   "users": [
     {
+      "id": 1,
+      "name": "Nguyen Duy Hung",
+      "avatar": "https://gravatar.com/avatar/048a86deb9848f275429b8e175d49f95?s=400&d=robohash&r=x",
       "username": "imadmin",
-      "password": "admin123",
+      "password": "$2a$10$npyLa92A82BzwUmLqGVGTu0eE2htCQysH2rLR1x14ocpZUzh.caBO",
       "email": "admin@gmail.com",
       "telephone": 394879813,
       "roleID": 1
     },
     {
+      "id": 2,
+      "name": "Nguyen Phu Thanh",
+      "avatar": "https://gravatar.com/avatar/048a86deb9848f275429b8e175d49f95?s=400&d=robohash&r=x",
       "username": "user2",
-      "password": "user2123",
+      "password": "$2a$10$BjoxB.By/zrIUSblyHAYv.97jKrXKKqcvdZcsF5v43Y309u5THF5q",
       "email": "user2@gmail.com",
       "telephone": 123456789,
       "roleID": 2
     }
   ],
-  "role": [
+  "roles": [
     {
       "id": 1,
       "name": "Admin"
@@ -307,30 +313,26 @@
       "updatedAt": "2024-10-18T06:25:39.000Z"
     },
     {
-      "id": 3,
       "title": "News 3",
-      "content": "Content 3",
-      "comment": 30,
       "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
-      "views": 3000,
+      "content": "Content 3 so Vjp\n",
+      "id": 3,
       "createdAt": "2024-10-18T06:25:39.000Z",
-      "updatedAt": "2024-10-18T06:25:39.000Z"
+      "updatedAt": "2025-03-25T13:18:13.916Z"
     },
     {
-      "title": "News 4 updated",
+      "title": "News 4 updated 2",
       "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
-      "views": 4000,
       "content": "Content 4",
       "id": 4,
-      "updatedAt": "2025-03-18T15:56:51.548Z"
+      "updatedAt": "2025-03-25T13:17:44.098Z"
     },
     {
-      "title": "News 5 updated",
+      "title": "News 5 updated 1",
       "image": "https://hstatic.net/744/1000088744/10/2016/5-7/blog_2.jpg",
       "content": "Content 5",
-      "views": 5000,
       "id": 5,
-      "updatedAt": "2025-03-18T15:56:31.935Z"
+      "updatedAt": "2025-03-25T13:17:58.268Z"
     }
   ]
 }
