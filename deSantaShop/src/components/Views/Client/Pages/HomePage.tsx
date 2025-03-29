@@ -62,34 +62,38 @@ const HomePage = () => {
 
     return (
         <div className="max-w-7xl mx-auto px-4">
-            <div className="bg-white py-8 m-6">
-                <div className="text-center mb-12">
-                    <h3 className="text-3xl font-bold text-gray-800 uppercase">PROMOTIONAL TODAY</h3>
+            <div className="bg-white py-8 mx-6 mb-4">
+                <div className="text-center mb-6">
+                    <h3 className="text-3xl font-bold text-gray-900 uppercase">PROMOTIONAL TODAY</h3>
                 </div>
-
-                <div className="flex justify-center mb-6">
-                    <img src="https://hstatic.net/744/1000088744/1000124945/banner_lena3_1.jpg?v=176" alt="banner" className="w-[100%] max-w-[1600px] rounded-lg shadow-lg object-cover" />
+                <div className="flex justify-center mb-10">
+                    <img
+                        src="https://img.freepik.com/free-vector/realistic-cyber-monday-twitch-banner_23-2149816813.jpg?t=st=1743240225~exp=1743243825~hmac=72f0a78a8625c02b9bd57c4bd321e4a22116507a501954bed35e9a0bef0c3f3e&w=996"
+                        alt="banner"
+                        className="w-full max-w-[900px] rounded-lg shadow-lg object-cover max-h-[250px]"
+                    />
                 </div>
-
-                <div className="flex justify-center space-x-10 text-gray-700 font-semibold text-lg">
-                    <a href="#" className="flex flex-col items-center">
+                <div className="flex justify-center gap-12 text-gray-800 font-semibold text-lg">
+                    <a href="#" className="flex flex-col items-center text-center hover:text-blue-500 transition">
                         <i className="fa-solid fa-truck text-3xl text-blue-500 mb-2"></i>
                         <span>FREE SHIP</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center">
+                    <a href="#" className="flex flex-col items-center text-center hover:text-green-500 transition">
                         <i className="fa-solid fa-headset text-3xl text-green-500 mb-2"></i>
                         <span>SUPPORT 24/7</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center">
+                    <a href="#" className="flex flex-col items-center text-center hover:text-red-500 transition">
                         <i className="fa-solid fa-rotate-left text-3xl text-red-500 mb-2"></i>
                         <span>REFUND 100%</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center">
+                    <a href="#" className="flex flex-col items-center text-center hover:text-yellow-500 transition">
                         <i className="fa-solid fa-shield text-3xl text-yellow-500 mb-2"></i>
                         <span>SECURE PAYMENT</span>
                     </a>
                 </div>
             </div>
+
+
             <div className="flex items-center justify-between border-b pb-2">
                 <div className="flex space-x-8">
                     <button className="font-bold text-black hover:text-gray-400 transition">
@@ -112,9 +116,9 @@ const HomePage = () => {
                     {Products?.slice(0, 4).map((product: Products) => (
                         <div
                             key={product.id}
-                            className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300"
+                            className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between"
                         >
-                            <div className="relative h-[350px] w-full">
+                            <div className="relative h-[300px] w-full">
                                 <img
                                     src={product.thumbnail}
                                     alt={product.title}
@@ -124,23 +128,28 @@ const HomePage = () => {
                                     SALE
                                 </span>
                             </div>
-                            <div className="p-4 text-center">
-                                <h3 className="text-lg font-semibold">{product.title}</h3>
-                                <div className="flex items-center justify-center gap-2 mt-2">
-                                    <p className="text-xl font-bold text-black">
-                                        {product.price}
-                                        <span className="text-sm">$</span>
-                                    </p>
-                                    <p className="text-gray-400 line-through text-sm">
-                                        {product.price * 100}
-                                        <span className="text-sm">$</span>
-                                    </p>
+
+                            <div className="p-4 text-center flex flex-col">
+                                <h3 className="text-lg font-semibold text-gray-900 min-h-[48px]">
+                                    {product.title}
+                                </h3>
+
+                                <div className="flex flex-col justify-center mt-auto">
+                                    <div className="flex items-center justify-center gap-2">
+                                        <p className="text-xl font-bold text-black">
+                                            ${product.price.toFixed(2)}
+                                        </p>
+                                        <p className="text-gray-400 line-through text-sm">
+                                            ${(product.price * 1.2).toFixed(2)}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+
 
             <div className="flex items-center justify-between border-b pb-2">
                 <div className="flex gap-6">

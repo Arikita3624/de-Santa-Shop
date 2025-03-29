@@ -186,6 +186,116 @@
       "discount": 17,
       "description": "Product 17",
       "id": 22
+    },
+    {
+      "title": "Cooler Master MasterBox TD500 Mesh",
+      "price": 180000,
+      "thumbnail": "https://product.hstatic.net/200000722513/product/td500m_02_poly_mesh-imageleftorright_1d812856d8d345babb9959e7a844b90a_2510ab0d4c5243fc823dac1f05309f5b.png",
+      "categoryID": 2,
+      "quantity": 100,
+      "discount": 25,
+      "description": "Product 18",
+      "id": 23
+    },
+    {
+      "title": "HyperX Cloud Alpha Wireless",
+      "price": 190000,
+      "thumbnail": "https://row.hyperx.com/cdn/shop/files/hyperx_cloud_alpha_wireless_1_main_2048x2048.jpg?v=1737967695",
+      "categoryID": 4,
+      "quantity": 101,
+      "discount": 26,
+      "description": "Product 19",
+      "id": 24
+    },
+    {
+      "title": "Razer Huntsman V2 TKL",
+      "price": 200000,
+      "thumbnail": "https://bizweb.dktcdn.net/100/329/122/products/ban-phim-co-tkl-razer-huntsman-v2-tenkeyless-1690184043429-eb2f9b64-a0ec-42fe-acb1-b0edf01c2847.png?v=1742490032720",
+      "categoryID": 5,
+      "quantity": 102,
+      "discount": 30,
+      "description": "Product 20",
+      "id": 25
+    },
+    {
+      "title": "Brother HL-L2351DW",
+      "price": 210000,
+      "thumbnail": "https://m.media-amazon.com/images/I/71ebpN14y1L._AC_UF1000,1000_QL80_.jpg",
+      "categoryID": 8,
+      "quantity": 103,
+      "discount": 35,
+      "description": "Product 21",
+      "id": 26
+    },
+    {
+      "title": "Plustek ePhoto Z300",
+      "thumbnail": "https://phucanhcdn.com/media/product/47965_plustek_ephoto_z300__a2.jpg",
+      "price": 220000,
+      "categoryID": 9,
+      "quantity": 104,
+      "discount": 40,
+      "description": "Product 22",
+      "id": 27
+    },
+    {
+      "title": "Lenovo ThinkPad X1 Carbon Gen 11",
+      "thumbnail": "https://imagor.owtg.one/unsafe/fit-in/800x800/https://d28jzcg6y4v9j1.cloudfront.net/media/core/products/2022/12/23/lenovo-thinkpad-x1-carbon-gen-11-thinkpro-05.png",
+      "price": 230000,
+      "categoryID": 1,
+      "quantity": 105,
+      "discount": 45,
+      "description": "Product 23",
+      "id": 28
+    },
+    {
+      "title": "Logitech G Pro X Superlight (Wireless, 63g, 25K DPI)",
+      "thumbnail": "https://product.hstatic.net/200000722513/product/thumbchuot_a405fadb92a34c429c3eed4d11a84fb5_1024x1024.jpg",
+      "price": 240000,
+      "categoryID": 7,
+      "quantity": 106,
+      "discount": 50,
+      "description": "Product 24",
+      "id": 29
+    },
+    {
+      "title": "ASUS ProArt PA278CV (27 inch, 2K, IPS, 100% sRGB)",
+      "thumbnail": "https://hanoicomputercdn.com/media/product/58238_man_hinh_asus_proart_pa278cv_8.png",
+      "price": 250000,
+      "categoryID": 3,
+      "quantity": 107,
+      "discount": 55,
+      "description": "Product 25",
+      "id": 30
+    },
+    {
+      "title": "Lenovo Legion 7i Gen 8",
+      "thumbnail": "https://www.laptopvip.vn/images/ab__webp/detailed/30/10004-kohz-4q-www.laptopvip.vn-1676082452.webp",
+      "price": 260000,
+      "categoryID": 1,
+      "quantity": 108,
+      "discount": 60,
+      "description": "Product 26",
+      "id": 31
+    },
+    {
+      "title": "Corsair 4000D Airflow",
+      "thumbnail": "https://techspace.vn/wp-content/uploads/2023/12/1-66.webp",
+      "price": 270000,
+      "categoryID": 2,
+      "quantity": 109,
+      "discount": 65,
+      "description": "Product 27",
+      "id": 32
+    },
+    {
+      "title": "Alienware AW3423DWF (34 inch, QD-OLED, 165Hz, 0.1ms)",
+      "thumbnail": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/edcb2ec6-3053-4d2b-b8d4-9691c694f6b2.jpg;maxHeight=640;maxWidth=550;format=webp",
+      "price": 280000,
+      "categoryID": 3,
+      "quantity": 110,
+      "discount": 70,
+      "description": "Product 28",
+      "id": 33
     }
   ],
   "categories": [
