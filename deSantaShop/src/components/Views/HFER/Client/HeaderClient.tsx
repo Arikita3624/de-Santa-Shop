@@ -55,11 +55,10 @@ const HeaderClient: React.FC<IHeaderClientProps> = ({ search }) => {
                 <div className='container mx-auto flex justify-between items-center px-6'>
                     <ul className='flex space-x-10 text-base font-medium'>
                         <li><a href="#" className='hover:text-yellow-500 transition duration-300'>Home</a></li>
-                        <li><a href="#" className='hover:text-yellow-500 transition duration-300'>About</a></li>
+                        <li><a href="about-us" className='hover:text-yellow-500 transition duration-300'>About</a></li>
                         <li><a href="products-client" className='hover:text-yellow-500 transition duration-300'>Products</a></li>
-                        <li><a href="#" className='hover:text-yellow-500 transition duration-300'>Contact</a></li>
+                        <li><a href="contact" className='hover:text-yellow-500 transition duration-300'>Contact</a></li>
                     </ul>
-
                     {/* Search bar */}
                     <form onSubmit={handleSearch} className='relative w-64'>
                         <input

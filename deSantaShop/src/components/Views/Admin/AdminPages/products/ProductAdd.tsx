@@ -27,7 +27,7 @@ const ProductAdd = () => {
     queryKey: ["categories"],
     queryFn: async () => {
       const response = await instance.get("/categories");
-      return response.data; // Chỉ trả về mảng `categories`
+      return response.data;
     },
   });
 
@@ -66,11 +66,9 @@ const ProductAdd = () => {
         </Link>
       </div>
 
-      {/* Xử lý loading và error */}
       {isLoading && <Spin size="large" />}
       {isError && <Alert message="Failed to load categories" type="error" />}
 
-      {/* Form */}
       {!isLoading && !isError && (
         <Form
           form={form}

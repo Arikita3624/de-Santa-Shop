@@ -18,6 +18,9 @@ import ProductsClient from '../components/Views/Client/Pages/ProductsClient'
 import ProductFromCateID from '../components/Views/Admin/AdminPages/products/ProductFromCateID'
 import UserList from '../components/Views/Admin/AdminPages/useradmin/UserList'
 import UserEdit from '../components/Views/Admin/AdminPages/useradmin/UserEdit'
+import Contact from '../components/Views/Client/Pages/Contact'
+import AboutPage from '../components/Views/Client/Pages/AboutPage'
+import ContactsList from '../components/Views/Admin/AdminPages/contact/ContactsList'
 
 type Props = {}
 
@@ -28,6 +31,8 @@ const Router = (props: Props) => {
             <Route path='/' element={<LayoutClient />}>
                <Route index element={<HomePage />} />
                <Route path='products-client' element={<ProductsClient />} />
+               <Route path='contact' element={<Contact/>} />
+               <Route path='about-us' element={<AboutPage />} />
             </Route>
             <Route path='admin' element={<LayoutAdmin />}>
                {/* Products*/}
@@ -47,6 +52,8 @@ const Router = (props: Props) => {
                {/*Users */}
                <Route path='users' element={<UserList/>} />
                <Route path='users/:id/edit' element={<UserEdit/>} />
+               {/*Contact */}
+               <Route path='contacts' element={<ContactsList/>} />
             </Route>
          </Routes>
       </>

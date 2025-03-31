@@ -296,6 +296,86 @@
       "discount": 70,
       "description": "Product 28",
       "id": 33
+    },
+    {
+      "title": "Laptop Asus Vivobook 14 X1404ZA-NK386W",
+      "thumbnail": "https://bizweb.dktcdn.net/thumb/1024x1024/100/329/122/products/laptop-asus-vivobook-14-x1404za-nk386w-06.jpg?v=1738947938560",
+      "price": 290000,
+      "categoryID": 1,
+      "quantity": 111,
+      "discount": 75,
+      "description": "Product 29",
+      "id": 34
+    },
+    {
+      "title": "Phanteks Eclipse P400A",
+      "thumbnail": "https://product.hstatic.net/1000129940/product/case-phanteks-eclipse-p400a---black_f30a777ee49e43fd9fb63b748c65e5f1_master.jpg",
+      "price": 300000,
+      "categoryID": 2,
+      "quantity": 112,
+      "discount": 80,
+      "description": "Product 30",
+      "id": 35
+    },
+    {
+      "title": "AOC 24 Inch Fast IPS 180Hz 24G42E/74",
+      "thumbnail": "https://bizweb.dktcdn.net/thumb/grande/100/329/122/products/man-hinh-aoc-24g4e-24-inch-fast-ips-180hz-24g4e-74-02-e15f53ab-fb84-4814-84eb-5715d526a3d3.jpg?v=1738811156890",
+      "price": 310000,
+      "categoryID": 3,
+      "quantity": 113,
+      "discount": 85,
+      "description": "Product 31",
+      "id": 36
+    },
+    {
+      "title": "Razer BlackShark V2 X USB 7.1 Surround RZ04-04570100-R3M1",
+      "thumbnail": "https://bizweb.dktcdn.net/thumb/grande/100/329/122/products/tai-nghe-gaming-razer-blackshark-v2-x-usb-7-1-surround-04.jpg?v=1742490074637",
+      "price": 320000,
+      "categoryID": 4,
+      "quantity": 114,
+      "discount": 25,
+      "description": "Product 32",
+      "id": 37
+    },
+    {
+      "title": "Corsair K70 Core TKL RGB (Corsair MLX Sw) CH-911911E-NA",
+      "thumbnail": "https://bizweb.dktcdn.net/thumb/1024x1024/100/329/122/products/ban-phim-co-corsair-k70-core-tkl-rgb-corsair-mlx-sw-ch-911911e-na-04.jpg?v=1736851492803",
+      "price": 330000,
+      "categoryID": 5,
+      "quantity": 115,
+      "discount": 20,
+      "description": "Product 33",
+      "id": 38
+    },
+    {
+      "title": "Rapoo B30 Silent",
+      "thumbnail": "https://bizweb.dktcdn.net/thumb/grande/100/329/122/products/chuot-khong-day-rapoo-b30-silent-03.jpg?v=1723173790500",
+      "price": 340000,
+      "categoryID": 6,
+      "quantity": 116,
+      "discount": 15,
+      "description": "Product 34",
+      "id": 39
+    },
+    {
+      "title": "Canon LBP223dw",
+      "thumbnail": "https://hanoicomputercdn.com/media/product/78406_may_in_canon_lbp_223dw_n.jpg",
+      "price": 350000,
+      "categoryID": 7,
+      "quantity": 117,
+      "discount": 10,
+      "description": "Product 35",
+      "id": 40
+    },
+    {
+      "title": "Epson WorkForce ES-500W",
+      "thumbnail": "https://i.ebayimg.com/images/g/CRMAAOSwn01i-Iz2/s-l1200.jpg",
+      "price": 360000,
+      "categoryID": 8,
+      "quantity": 118,
+      "discount": 5,
+      "description": "Product 36",
+      "id": 41
     }
   ],
   "categories": [
@@ -430,6 +510,47 @@
       "content": "Content 5",
       "id": 5,
       "updatedAt": "2025-03-25T13:17:58.268Z"
+    }
+  ],
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Nguyen Duy Hung",
+      "email": "admin@gmail.com",
+      "telephone": 394879813,
+      "content": "Contact 1",
+      "createdAt": "2024-10-18T06:25:39.000Z",
+      "updatedAt": "2024-10-18T06:25:39.000Z"
+    },
+    {
+      "name": "Alexander Delpiero",
+      "email": "alex11@gmail.com",
+      "telephone": "11122233445",
+      "content": "Ur Web like shit !",
+      "id": 2
+    },
+    {
+      "name": "Người Dùng 1 ",
+      "email": "user1@gmail.com",
+      "telephone": "0118282811",
+      "content": "Web như lồn \n",
+      "id": 3
+    },
+    {
+      "name": "Nguyen Thanh",
+      "email": "thanhgay111@gmail.com",
+      "telephone": "12312312312",
+      "content": "Web như cái đầu buồi \n",
+      "createdAt": "2025-03-31T19:48:00.237Z",
+      "id": 4
+    },
+    {
+      "name": "Test tí đê",
+      "email": "test22@gmail.com",
+      "telephone": "1110101111",
+      "content": "Như cái con cặc\n",
+      "createdAt": "2025-03-31T19:53:14.249Z",
+      "id": 5
     }
   ]
 }

@@ -4,10 +4,10 @@ import {
   HomeOutlined,
   UserOutlined,
   ShoppingCartOutlined,
-  SettingOutlined,
   BarChartOutlined,
   TableOutlined,
   FormOutlined,
+  ContactsOutlined,
 } from "@ant-design/icons";
 
 const menuItems = [
@@ -16,7 +16,7 @@ const menuItems = [
   { path: "/admin/users", icon: <UserOutlined />, label: "Users" },
   { path: "/admin/orders", icon: <ShoppingCartOutlined />, label: "Orders" },
   { path: "/admin/news", icon: <FormOutlined />, label: "News" },
-  { path: "/admin/settings", icon: <SettingOutlined />, label: "Settings" },
+  { path: "/admin/contacts", icon: <ContactsOutlined />, label: "Contacts" },
   { path: "/admin/reports", icon: <BarChartOutlined />, label: "Reports" },
 ];
 

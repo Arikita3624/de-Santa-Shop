@@ -106,8 +106,8 @@ const HomePage = () => {
                         PROMOTIONAL
                     </button>
                 </div>
-                <button className="bg-black text-white px-6 py-2 uppercase font-bold hover:bg-gray-700 transition">
-                    SEE MORE
+                <button className="bg-black text-white px-6 py-2 uppercase font-bold hover:bg-gray-700 transition rounded-md">
+                    <a href="/products-client">SEE MORE</a>
                 </button>
             </div>
 
@@ -156,7 +156,11 @@ const HomePage = () => {
                     {Categories?.slice(0, 3).map((category: Category) => (
                         <span
                             key={category.id}
-                            className={`cursor-pointer font-bold uppercase ${selectedCategory === category.id ? "text-yellow-300" : "text-black"
+                            className={`cursor-pointer font-bold uppercase ${selectedCategory === category.id ? "text-yellow-300" : "text-black" } hover:text-gray-400 transition ${
+                                selectedCategory === category.id
+                                    ? "text-yellow-300"
+                                    : "text-black"
+                            }
                                 }`}
                             onClick={() => setSelectedCategory(selectedCategory === category.id ? null : (category.id as number))}
                         >
@@ -164,8 +168,8 @@ const HomePage = () => {
                         </span>
                     ))}
                 </div>
-                <button className="bg-black text-white px-6 py-2 uppercase font-bold hover:bg-gray-700 transition">
-                    SEE MORE
+                <button className="bg-black text-white px-6 py-2 uppercase font-bold hover:bg-gray-700 transition rounded-md">
+                    <a href="/products-client">SEE MORE</a>
                 </button>
             </div>
 

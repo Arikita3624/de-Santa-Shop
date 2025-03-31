@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "@tanstack/react-query";
 import { Button, Input, Select, Pagination } from "antd";
 import React, { useState } from "react";
@@ -24,26 +25,26 @@ const ProductsClient = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading products</div>;
 
-  let filteredProducts = products.filter((product) =>
+  let filteredProducts = products.filter((product: { title: string; }) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (selectedCategory) {
     filteredProducts = filteredProducts.filter(
-      (product) => product.categoryID === selectedCategory
+      (product: { categoryID: number; }) => product.categoryID === selectedCategory
     );
   }
 
   if (minPrice !== "" && maxPrice !== "") {
     filteredProducts = filteredProducts.filter(
-      (product) => product.price >= minPrice && product.price <= maxPrice
+      (product: { price: number; }) => product.price >= minPrice && product.price <= maxPrice
     );
   }
 
   if (sortOrder === "asc") {
-    filteredProducts.sort((a, b) => a.price - b.price);
+    filteredProducts.sort((a: { price: number; }, b: { price: number; }) => a.price - b.price);
   } else if (sortOrder === "desc") {
-    filteredProducts.sort((a, b) => b.price - a.price);
+    filteredProducts.sort((a: { price: number; }, b: { price: number; }) => b.price - a.price);
   }
 
   const totalItems = filteredProducts.length;
@@ -69,9 +70,8 @@ const ProductsClient = () => {
         </Select>
       </div>
 
-      {/* Hiển thị sản phẩm */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-        {paginatedProducts.map((product) => (
+        {paginatedProducts.map((product: { id: React.Key | null | undefined; title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined; thumbnail: any; discount: number; price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined; }) => (
           <div key={product.id} className="border rounded-lg shadow-md p-3 flex flex-col items-center">
             <h3 className="text-sm font-medium text-center">{product.title}</h3>
             <img src={product.thumbnail || "/placeholder.jpg"} alt={product.title} className="w-full h-48 object-contain rounded-md" />
