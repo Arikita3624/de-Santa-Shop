@@ -456,6 +456,42 @@
       "email": "user2@gmail.com",
       "telephone": 123456789,
       "roleID": 2
+    },
+    {
+      "email": "usertest3@gmail.com",
+      "password": "$2a$10$iFBV9H5LJgEOq9jTQ5wYAupYl90CGdthkto5r1uxA9Ylk140fT2He",
+      "name": "User N",
+      "username": "usertest3",
+      "telephone": "012363835823",
+      "id": 4,
+      "roleID": 2
+    },
+    {
+      "email": "arikita5t@gmail.com",
+      "password": "$2a$10$o1tc9PltA3V2ymM6JBxhQOsAESEyYkzdOReYCtS7mI0qCGt5CzRky",
+      "name": "Arikita de Santa",
+      "username": "arikita_deSanta",
+      "telephone": "012223565783",
+      "roleID": 2,
+      "id": 5
+    },
+    {
+      "email": "teste@exemplo.us",
+      "password": "$2a$10$AjYUQmOCew3bcMCmqQuOMOxBklH2GuDtOzXVtc46XYlGFuOvfJHaK",
+      "name": "João Souza Silva",
+      "username": "joaosouzasilva",
+      "telephone": "3121286800",
+      "roleID": 2,
+      "id": 6
+    },
+    {
+      "email": "hung3006@gmail.com",
+      "password": "$2a$10$o5Jors5MAlClM.ucTNHBmOP.WcXfqgWbmuO82eDytrfIAA.zmQnXy",
+      "name": "Nguyen Dy Hung",
+      "username": "hung3006",
+      "telephone": "02385345768",
+      "roleID": 2,
+      "id": 7
     }
   ],
   "roles": [

@@ -1,4 +1,6 @@
+import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface IHeaderClientProps {
     search: (value: string) => void;
@@ -6,6 +8,15 @@ interface IHeaderClientProps {
 
 const HeaderClient: React.FC<IHeaderClientProps> = ({ search }) => {
     const [searchValue, setSearchValue] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const location = useLocation();
+    const [messageApi, contextHolder] = message.useMessage();
+
+    useEffect(() => {
+        const token = sessionStorage.getItem("accessToken");
+        setIsLoggedIn(!!token);
+    }, [location]);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,15 +37,33 @@ const HeaderClient: React.FC<IHeaderClientProps> = ({ search }) => {
         search(searchValue);
     };
 
+    const handleLogout = () => {
+        sessionStorage.removeItem("accessToken");
+        sessionStorage.removeItem("user");
+        setIsLoggedIn(false);
+        messageApi.open({
+            type: "success",
+            content: "Logout successfully",
+        });
+    };
+
+
     return (
         <div>
-            {/* Support */}
+            {/* Top bar */}
+            {contextHolder}
             <div className='flex justify-between items-center py-2 px-6 border-gray-200 text-gray-700 text-sm'>
                 <span>Support 24/7 : (+84) 6 888 888</span>
                 <span>
-                    <a href="#" className='hover:underline'>Sign In</a>
-                    <span> - </span>
-                    <a href="#" className='hover:underline'>Sign Up</a>
+                    {isLoggedIn ? (
+                        <button onClick={handleLogout} className='hover:underline text-red-500'>Logout</button>
+                    ) : (
+                        <>
+                            <a href="/signin" className='hover:underline'>Sign In</a>
+                            <span> - </span>
+                            <a href="/signup" className='hover:underline'>Sign Up</a>
+                        </>
+                    )}
                 </span>
             </div>
 
@@ -50,16 +79,15 @@ const HeaderClient: React.FC<IHeaderClientProps> = ({ search }) => {
                 </div>
             </header>
 
-            {/* Main Menu */}
+            {/* Menu */}
             <div id='menu' className='bg-black text-white py-4'>
                 <div className='container mx-auto flex justify-between items-center px-6'>
                     <ul className='flex space-x-10 text-base font-medium'>
-                        <li><a href="#" className='hover:text-yellow-500 transition duration-300'>Home</a></li>
-                        <li><a href="about-us" className='hover:text-yellow-500 transition duration-300'>About</a></li>
-                        <li><a href="products-client" className='hover:text-yellow-500 transition duration-300'>Products</a></li>
-                        <li><a href="contact" className='hover:text-yellow-500 transition duration-300'>Contact</a></li>
+                        <li><a href="/" className='hover:text-yellow-500 transition duration-300'>Home</a></li>
+                        <li><a href="/about-us" className='hover:text-yellow-500 transition duration-300'>About</a></li>
+                        <li><a href="/products-client" className='hover:text-yellow-500 transition duration-300'>Products</a></li>
+                        <li><a href="/contact" className='hover:text-yellow-500 transition duration-300'>Contact</a></li>
                     </ul>
-                    {/* Search bar */}
                     <form onSubmit={handleSearch} className='relative w-64'>
                         <input
                             type="text"
@@ -73,14 +101,18 @@ const HeaderClient: React.FC<IHeaderClientProps> = ({ search }) => {
                 </div>
             </div>
 
-            <div className='banner mt-6 mb-6'>
-                <img src="https://github.com/duyhungDev24/Vue/blob/main/Rim%20Chalesto/src/assets/Images/Banners/banner3.jpg?raw=true"
-                    alt="banner"
-                    className='w-full h-[600px] object-cover' />
-            </div>
+            {/* Banner */}
+            {location.pathname === "/" && (
+                <div className='w-full mt-8 mb-3'>
+                    <img
+                        src="https://img.freepik.com/premium-photo/sale-ad-sale-with-laptop-headphones_913495-5603.jpg?w=1380"
+                        alt="banner"
+                        className='w-full h-auto object-cover'
+                    />
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
 export default HeaderClient;
-

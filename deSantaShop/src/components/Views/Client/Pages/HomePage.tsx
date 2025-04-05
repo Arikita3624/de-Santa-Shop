@@ -73,28 +73,28 @@ const HomePage = () => {
                         className="w-full max-w-[900px] rounded-lg shadow-lg object-cover max-h-[250px]"
                     />
                 </div>
-                <div className="flex justify-center gap-12 text-gray-800 font-semibold text-lg">
-                    <a href="#" className="flex flex-col items-center text-center hover:text-blue-500 transition">
-                        <i className="fa-solid fa-truck text-3xl text-blue-500 mb-2"></i>
+                <div className="flex justify-center gap-12 text-gray-800 font-bold text-lg">
+                    <a href="#" className="flex flex-col items-center text-center hover:text-yellow-200 transition">
+                        <i className="fa-solid fa-truck text-3xl text-yellow-200 mb-2"></i>
                         <span>FREE SHIP</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center text-center hover:text-green-500 transition">
-                        <i className="fa-solid fa-headset text-3xl text-green-500 mb-2"></i>
+                    <a href="#" className="flex flex-col items-center text-center hover:text-yellow-200 transition">
+                        <i className="fa-solid fa-headset text-3xl text-yellow-200 mb-2"></i>
                         <span>SUPPORT 24/7</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center text-center hover:text-red-500 transition">
-                        <i className="fa-solid fa-rotate-left text-3xl text-red-500 mb-2"></i>
+                    <a href="#" className="flex flex-col items-center text-center hover:text-yellow-200 transition">
+                        <i className="fa-solid fa-rotate-left text-3xl text-yellow-200 mb-2"></i>
                         <span>REFUND 100%</span>
                     </a>
-                    <a href="#" className="flex flex-col items-center text-center hover:text-yellow-500 transition">
-                        <i className="fa-solid fa-shield text-3xl text-yellow-500 mb-2"></i>
+                    <a href="#" className="flex flex-col items-center text-center hover:text-yellow-200 transition">
+                        <i className="fa-solid fa-shield text-3xl text-yellow-200 mb-2"></i>
                         <span>SECURE PAYMENT</span>
                     </a>
                 </div>
             </div>
 
 
-            <div className="flex items-center justify-between border-b pb-2">
+            <div className="flex items-center justify-between font-semibold border-b pb-2">
                 <div className="flex space-x-8">
                     <button className="font-bold text-black hover:text-gray-400 transition">
                         NEW PRODUCTS
@@ -151,7 +151,7 @@ const HomePage = () => {
             </div>
 
 
-            <div className="flex items-center justify-between border-b pb-2">
+            <div className="flex items-center justify-between font-semibold border-b pb-2">
                 <div className="flex gap-6">
                     {Categories?.slice(0, 3).map((category: Category) => (
                         <span

@@ -21,6 +21,8 @@ import UserEdit from '../components/Views/Admin/AdminPages/useradmin/UserEdit'
 import Contact from '../components/Views/Client/Pages/Contact'
 import AboutPage from '../components/Views/Client/Pages/AboutPage'
 import ContactsList from '../components/Views/Admin/AdminPages/contact/ContactsList'
+import SignUp from '../components/Views/Client/Pages/Auth/SignUp'
+import SignIn from '../components/Views/Client/Pages/Auth/SignIn'
 
 type Props = {}
 
@@ -33,6 +35,8 @@ const Router = (props: Props) => {
                <Route path='products-client' element={<ProductsClient />} />
                <Route path='contact' element={<Contact/>} />
                <Route path='about-us' element={<AboutPage />} />
+               <Route path='signup' element={<SignUp/>} />
+               <Route path='signin' element={<SignIn/>} />
             </Route>
             <Route path='admin' element={<LayoutAdmin />}>
                {/* Products*/}

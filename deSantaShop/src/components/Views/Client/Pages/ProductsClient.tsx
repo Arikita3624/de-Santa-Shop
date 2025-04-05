@@ -22,6 +22,14 @@ const ProductsClient = () => {
     },
   });
 
+  const { data: Categories } = useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const response = await instance.get("/categories");
+      return response.data;
+    },
+  })
+
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading products</div>;
 
@@ -58,7 +66,19 @@ const ProductsClient = () => {
       {/* Bộ lọc */}
       <div className="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Input placeholder="🔍 Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-        <Select placeholder="📂 Category" allowClear className="w-full" onChange={(value) => setSelectedCategory(value)} />
+        <Select
+          placeholder="📂 Category"
+          allowClear
+          className="w-full"
+          onChange={(value) => setSelectedCategory(value)}
+        >
+          {Categories?.map((category: { id: number; name: string }) => (
+            <Select.Option key={category.id} value={category.id}>
+              {category.name}
+            </Select.Option>
+          ))}
+        </Select>
+
         <div className="flex gap-2">
           <Input type="number" placeholder="💰 Min Price" value={minPrice} onChange={(e) => setMinPrice(Number(e.target.value) || "")} />
           <Input type="number" placeholder="💰 Max Price" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value) || "")} />

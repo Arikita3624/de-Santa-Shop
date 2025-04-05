@@ -23,8 +23,6 @@ const UserEdit = () => {
 
     console.log(user);
 
-
-    // Fetch list of roles
     const { data: roles } = useQuery({
         queryKey: ["roles"],
         queryFn: async () => {
@@ -34,7 +32,6 @@ const UserEdit = () => {
     });
     console.log(roles);
 
-    // Mutation to update role
     const updateRoleMutation = useMutation({
         mutationFn: async (newRoleID: number) => {
             await instance.patch(`/users/${id}`, { roleID: newRoleID });
@@ -49,8 +46,6 @@ const UserEdit = () => {
     });
 
 
-
-    // Mutation to update password
     const updatePasswordMutation = useMutation({
         mutationFn: async (newPassword: string) => {
             await instance.patch(`/users/${id}`, { password: newPassword });
@@ -106,8 +101,6 @@ const UserEdit = () => {
                     </Select>
                 </Form.Item>
             </Form>
-
-            {/* Button to toggle password form */}
             <Button
                 type="dashed"
                 className="w-full mb-4"
@@ -145,7 +138,6 @@ const UserEdit = () => {
                     </Button>
                 </Form>
             )}
-
             <Button
                 className="mt-4 w-full"
                 onClick={() => navigate("/admin/users")}

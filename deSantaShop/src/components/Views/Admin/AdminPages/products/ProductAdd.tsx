@@ -22,8 +22,7 @@ const ProductAdd = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = useForm();
 
-  // Fetch categories
-  const { data: categories = [], isLoading, isError } = useQuery({
+  const { data: categories, isLoading, isError } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
       const response = await instance.get("/categories");
@@ -31,7 +30,7 @@ const ProductAdd = () => {
     },
   });
 
-  // Mutation để thêm sản phẩm
+
   const { mutate, isLoading: isSubmitting } = useMutation({
     mutationFn: async (product: FieldType) => {
       try {
@@ -110,7 +109,7 @@ const ProductAdd = () => {
             >
               <Select placeholder="Choose category" className="w-full">
                 {categories.length > 0 ? (
-                  categories.map((category: any) => (
+                  categories?.map((category: any) => (
                     <Select.Option key={category.id} value={category.id}>
                       {category.name}
                     </Select.Option>
