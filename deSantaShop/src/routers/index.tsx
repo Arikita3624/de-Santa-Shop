@@ -23,6 +23,7 @@ import AboutPage from '../components/Views/Client/Pages/AboutPage'
 import ContactsList from '../components/Views/Admin/AdminPages/contact/ContactsList'
 import SignUp from '../components/Views/Client/Pages/Auth/SignUp'
 import SignIn from '../components/Views/Client/Pages/Auth/SignIn'
+import ProductDetail from '../components/Views/Client/Pages/ProductDetail'
 
 type Props = {}
 
@@ -33,6 +34,7 @@ const Router = (props: Props) => {
             <Route path='/' element={<LayoutClient />}>
                <Route index element={<HomePage />} />
                <Route path='products-client' element={<ProductsClient />} />
+               <Route path='product-client/:id' element={<ProductDetail />} />
                <Route path='contact' element={<Contact/>} />
                <Route path='about-us' element={<AboutPage />} />
                <Route path='signup' element={<SignUp/>} />

@@ -94,7 +94,7 @@ const ProductsClient = () => {
         {paginatedProducts.map((product: { id: React.Key | null | undefined; title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined; thumbnail: any; discount: number; price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined; }) => (
           <div key={product.id} className="border rounded-lg shadow-md p-3 flex flex-col items-center">
             <h3 className="text-sm font-medium text-center">{product.title}</h3>
-            <img src={product.thumbnail || "/placeholder.jpg"} alt={product.title} className="w-full h-48 object-contain rounded-md" />
+            <Link to={`/product-client/${product.id}`}><img src={product.thumbnail || "/placeholder.jpg"} alt={product.title} className="w-full h-48 object-contain rounded-md" /></Link>
             <div className="mt-auto text-center">
               <span className="text-sm font-semibold text-cyan-500 block mt-2">
                 {product.discount > 0 ? (

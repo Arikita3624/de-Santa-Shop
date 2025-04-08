@@ -27,6 +27,7 @@ const SignUp = () => {
         },
         onSuccess: () => {
             messageApi.success("Register successfully!");
+            form.resetFields();
         },
         onError: () => {
             messageApi.error("Failed to register account");
@@ -129,7 +130,7 @@ const SignUp = () => {
                 </Form>
 
                 <p className="text-center text-gray-600 text-sm">
-                    Already have an account? <a href="#" className="text-gray-900 font-semibold hover:underline">Login here</a>
+                    Already have an account? <a href="signin" className="text-gray-900 font-semibold hover:underline">Login here</a>
                 </p>
             </div>
         </div>

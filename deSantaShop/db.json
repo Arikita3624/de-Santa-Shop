@@ -492,6 +492,24 @@
       "telephone": "02385345768",
       "roleID": 2,
       "id": 7
+    },
+    {
+      "email": "myha22@gmail.com",
+      "password": "$2a$10$kav.KyPPg3NXq/8/OcD8B.wcDvksagddHtaF.WrIGZRrfxm70CmmO",
+      "name": "Nguyễn Thị Mỹ Hà",
+      "username": "myha22",
+      "telephone": "012347456453",
+      "roleID": 2,
+      "id": 8
+    },
+    {
+      "email": "napoleon12@gmail.com",
+      "password": "$2a$10$fVPRlXB8zdOn8cH2Dt8yaO3xVrQctbPh6NxoVg8lVFYJsxZVZ0xMO",
+      "name": "Napoleon",
+      "username": "napoleon12",
+      "telephone": "0112347854345",
+      "roleID": 2,
+      "id": 9
     }
   ],
   "roles": [

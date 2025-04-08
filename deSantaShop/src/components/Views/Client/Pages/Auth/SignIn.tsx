@@ -19,7 +19,7 @@ const SignIn = () => {
         mutationFn: async (user: FieldType) => {
             try {
                 const response = await instance.post("/signin", user);
-                console.log("API response:", response.data); // Log phản hồi từ API
+                console.log("API response:", response.data);
                 return response.data;
             } catch (error) {
                 console.error("Login error:", error);
@@ -27,16 +27,25 @@ const SignIn = () => {
             }
         },
         onSuccess: (data) => {
-            console.log("Login success:", data);
             if (data?.accessToken) {
-                sessionStorage.setItem("accessToken", data.accessToken);
-                sessionStorage.setItem("user", JSON.stringify(data.user));
+                const rememberMe = form.getFieldValue("rememberMe");
+                const expiresInDays = 7;
+                const expiresAt = new Date();
+                expiresAt.setDate(expiresAt.getDate() + expiresInDays);
+
+                if (rememberMe) {
+                    localStorage.setItem("accessToken", data.accessToken);
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                    localStorage.setItem("expiresAt", expiresAt.toISOString());
+                } else {
+                    sessionStorage.setItem("accessToken", data.accessToken);
+                    sessionStorage.setItem("user", JSON.stringify(data.user));
+                }
 
                 messageApi.success("Login successfully! You will be redirected to the home page.");
                 setTimeout(() => {
                     navigate("/");
                 }, 2000);
-
             } else {
                 messageApi.error("Invalid login response. No accessToken received.");
             }
@@ -87,10 +96,13 @@ const SignIn = () => {
 
                     <Form.Item>
                         <div className="flex justify-between items-center">
-                            <Checkbox>Remember me</Checkbox>
+                            <Form.Item name="rememberMe" valuePropName="checked" noStyle>
+                                <Checkbox>Remember me</Checkbox>
+                            </Form.Item>
                             <a href="#" className="text-gray-900 font-semibold hover:underline">Forgot password?</a>
                         </div>
                     </Form.Item>
+
 
                     <Form.Item>
                         <Button
@@ -107,7 +119,7 @@ const SignIn = () => {
                 </Form>
 
                 <p className="text-center text-gray-600 text-sm">
-                    Don't have an account? <a href="#" className="text-gray-900 font-semibold hover:underline">Sign up here</a>
+                    Don't have an account? <a href="signup" className="text-gray-900 font-semibold hover:underline">Sign up here</a>
                 </p>
             </div>
         </div>
