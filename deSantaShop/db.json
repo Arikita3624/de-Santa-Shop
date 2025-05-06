@@ -7,7 +7,7 @@
       "categoryID": 1,
       "quantity": 10000,
       "discount": 10,
-      "description": "Product 1 description updated 3",
+      "description": "CPU: AMD Ryzen 5 5600H\nRAM: 16GB DDR4\nStorage: 512GB SSD\nGPU: NVIDIA RTX 3050\nDisplay: 15.6 inch Full HD",
       "id": 1,
       "createdAt": "2025-03-11T05:39:13.075Z",
       "updatedAt": "2025-03-25T07:36:57.344Z"
@@ -19,7 +19,7 @@
       "categoryID": 3,
       "quantity": 120,
       "discount": 2,
-      "description": "Product 2",
+      "description": "Size: 24 inch\nResolution: 1920x1080\nRefresh Rate: 165Hz\nPanel Type: IPS",
       "id": 7,
       "createdAt": "2024-10-18T06:25:39.000Z",
       "updatedAt": "2024-10-20T06:25:39.000Z"
@@ -31,7 +31,7 @@
       "categoryID": 2,
       "quantity": 1000,
       "discount": 1,
-      "description": "Product 3 updated\n",
+      "description": "Type: Mid Tower\nMaterial: Steel + Tempered Glass\nFan Support: Up to 6 Fans",
       "id": 8,
       "createdAt": "2024-10-18T06:25:39.000Z",
       "updatedAt": "2024-10-20T06:25:39.000Z"
@@ -43,7 +43,7 @@
       "categoryID": 4,
       "quantity": 4000,
       "discount": 4,
-      "description": "Product 4 updated\n",
+      "description": "Type: Over-Ear\nDriver: 40mm\nConnectivity: Wireless\nBattery: 22h",
       "id": 9,
       "createdAt": "2024-10-18T06:25:39.000Z",
       "updatedAt": "2024-10-20T06:25:39.000Z"
@@ -55,7 +55,7 @@
       "categoryID": 5,
       "quantity": 5555,
       "discount": 5,
-      "description": "Product 5 ",
+      "description": "Switch Type: Mechanical (Cherry MX)\nLayout: Full-size\nConnectivity: Wired",
       "id": 10,
       "createdAt": "2024-10-21T06:25:39.000Z",
       "updatedAt": "2025-03-25T13:20:24.113Z"
@@ -67,7 +67,7 @@
       "categoryID": 7,
       "quantity": 60000,
       "discount": 6,
-      "description": "Product 6 ",
+      "description": "Type: Gaming\nWeight: 80g\nDPI: 12000\nConnectivity: Wireless",
       "id": 11,
       "updatedAt": "2025-03-25T07:30:51.678Z"
     },
@@ -75,10 +75,10 @@
       "title": "HP LaserJet Pro MFP M428fdw",
       "price": 700000,
       "thumbnail": "https://bizweb.dktcdn.net/100/433/921/products/may-in-da-chuc-nang-hp-laserjet-pro-mfp-m428fdw-tai-vanphongstar-2.jpg?v=1646981939703",
-      "categoryID": 9,
+      "categoryID": 8,
       "quantity": 70,
       "discount": 7,
-      "description": "Product 7",
+      "description": "Print Type: Laser\nSpeed: 38 ppm\nConnectivity: USB/Wi-Fi",
       "id": 12,
       "updatedAt": "2025-03-25T07:27:57.019Z"
     },
@@ -86,10 +86,10 @@
       "title": "Fujitsu ScanSnap iX1600",
       "price": 800,
       "thumbnail": "https://hoangminhoffice.com/wp-content/uploads/2022/08/fujitsu-1600.png",
-      "categoryID": 8,
+      "categoryID": 9,
       "quantity": 7000,
       "discount": 1,
-      "description": "Product 8",
+      "description": "Scan Type: ADF\nResolution: 600 dpi\nSpeed: 40 ppm",
       "id": 13,
       "createdAt": "2024-10-20T06:25:39.000Z",
       "updatedAt": "2024-10-20T06:25:39.000Z"
@@ -101,7 +101,7 @@
       "categoryID": 1,
       "quantity": 9,
       "discount": 9,
-      "description": "Product 9 ",
+      "description": "CPU: Apple M2\nRAM: 8GB\nStorage: 256GB SSD\nGPU: Integrated 8-core GPU\nDisplay: 13.6 inch Retina",
       "id": 14,
       "updatedAt": "2025-03-25T07:27:30.352Z"
     },
@@ -112,7 +112,7 @@
       "categoryID": 3,
       "quantity": 1000000,
       "discount": 1,
-      "description": "Product 10",
+      "description": "Size: 27 inch\nResolution: 3840x2160\nRefresh Rate: 60Hz\nPanel Type: IPS",
       "id": 15,
       "createdAt": "2025-03-25T07:18:56.534Z",
       "updatedAt": "2025-03-25T07:18:56.534Z"
@@ -124,7 +124,7 @@
       "categoryID": 2,
       "quantity": 10,
       "discount": 10,
-      "description": "Product 11",
+      "description": "Type: Mid Tower\nMaterial: Steel + Tempered Glass\nFan Support: Up to 5 Fans",
       "id": 16
     },
     {
@@ -134,7 +134,7 @@
       "categoryID": 7,
       "quantity": 12,
       "discount": 12,
-      "description": "Product 12",
+      "description": "Type: Office\nWeight: 135g\nDPI: 3200\nConnectivity: Wired/Wireless",
       "id": 17
     },
     {
@@ -144,7 +144,7 @@
       "categoryID": 4,
       "quantity": 13,
       "discount": 13,
-      "description": "Product 13",
+      "description": "Type: Over-Ear\nDriver: 40mm\nConnectivity: Wireless\nBattery: 24h",
       "id": 18
     },
     {
@@ -154,7 +154,7 @@
       "categoryID": 5,
       "quantity": 14,
       "discount": 14,
-      "description": "Product 14",
+      "description": "Switch Type: Membrane\nLayout: Full-size\nConnectivity: Wireless",
       "id": 19
     },
     {
@@ -164,7 +164,7 @@
       "categoryID": 7,
       "quantity": 15,
       "discount": 15,
-      "description": "Product 15",
+      "description": "Type: Gaming\nWeight: 58g\nDPI: 30000\nConnectivity: Wireless",
       "id": 20
     },
     {
@@ -174,7 +174,7 @@
       "categoryID": 8,
       "quantity": 16,
       "discount": 16,
-      "description": "Product 16",
+      "description": "Print Type: Inkjet\nSpeed: 10 ppm\nConnectivity: USB/Wi-Fi",
       "id": 21
     },
     {
@@ -184,7 +184,7 @@
       "categoryID": 9,
       "quantity": 17,
       "discount": 17,
-      "description": "Product 17",
+      "description": "Scan Type: Flatbed\nResolution: 6400 dpi\nSpeed: 5 ppm",
       "id": 22
     },
     {
@@ -194,7 +194,7 @@
       "categoryID": 2,
       "quantity": 100,
       "discount": 25,
-      "description": "Product 18",
+      "description": "Type: Mid Tower\nMaterial: Steel + Mesh\nFan Support: Up to 7 Fans",
       "id": 23
     },
     {
@@ -204,7 +204,7 @@
       "categoryID": 4,
       "quantity": 101,
       "discount": 26,
-      "description": "Product 19",
+      "description": "Type: Over-Ear\nDriver: 50mm\nConnectivity: Wireless\nBattery: 300h",
       "id": 24
     },
     {
@@ -214,7 +214,7 @@
       "categoryID": 5,
       "quantity": 102,
       "discount": 30,
-      "description": "Product 20",
+      "description": "Switch Type: Optical\nLayout: Tenkeyless\nConnectivity: Wired",
       "id": 25
     },
     {
@@ -224,7 +224,7 @@
       "categoryID": 8,
       "quantity": 103,
       "discount": 35,
-      "description": "Product 21",
+      "description": "Print Type: Laser\nSpeed: 30 ppm\nConnectivity: USB/Wi-Fi",
       "id": 26
     },
     {
@@ -234,7 +234,7 @@
       "categoryID": 9,
       "quantity": 104,
       "discount": 40,
-      "description": "Product 22",
+      "description": "Scan Type: Flatbed\nResolution: 600 dpi\nSpeed: 2 ppm",
       "id": 27
     },
     {
@@ -244,7 +244,7 @@
       "categoryID": 1,
       "quantity": 105,
       "discount": 45,
-      "description": "Product 23",
+      "description": "CPU: Intel Core i7-1365U\nRAM: 16GB DDR5\nStorage: 512GB SSD\nGPU: Intel Iris Xe\nDisplay: 14 inch WUXGA",
       "id": 28
     },
     {
@@ -254,7 +254,7 @@
       "categoryID": 7,
       "quantity": 106,
       "discount": 50,
-      "description": "Product 24",
+      "description": "Type: Gaming\nWeight: 63g\nDPI: 25000\nConnectivity: Wireless",
       "id": 29
     },
     {
@@ -264,7 +264,7 @@
       "categoryID": 3,
       "quantity": 107,
       "discount": 55,
-      "description": "Product 25",
+      "description": "Size: 27 inch\nResolution: 2560x1440\nRefresh Rate: 75Hz\nPanel Type: IPS",
       "id": 30
     },
     {
@@ -274,7 +274,7 @@
       "categoryID": 1,
       "quantity": 108,
       "discount": 60,
-      "description": "Product 26",
+      "description": "CPU: Intel Core i7-13700H\nRAM: 16GB DDR5\nStorage: 1TB SSD\nGPU: NVIDIA RTX 4070\nDisplay: 16 inch WQXGA",
       "id": 31
     },
     {
@@ -284,7 +284,7 @@
       "categoryID": 2,
       "quantity": 109,
       "discount": 65,
-      "description": "Product 27",
+      "description": "Type: Mid Tower\nMaterial: Steel + Tempered Glass\nFan Support: Up to 6 Fans",
       "id": 32
     },
     {
@@ -294,7 +294,7 @@
       "categoryID": 3,
       "quantity": 110,
       "discount": 70,
-      "description": "Product 28",
+      "description": "Size: 34 inch\nResolution: 3440x1440\nRefresh Rate: 165Hz\nPanel Type: QD-OLED",
       "id": 33
     },
     {
@@ -304,7 +304,7 @@
       "categoryID": 1,
       "quantity": 111,
       "discount": 75,
-      "description": "Product 29",
+      "description": "CPU: AMD Ryzen 5 5625U\nRAM: 8GB DDR4\nStorage: 512GB SSD\nGPU: AMD Radeon Graphics\nDisplay: 14 inch Full HD",
       "id": 34
     },
     {
@@ -314,7 +314,7 @@
       "categoryID": 2,
       "quantity": 112,
       "discount": 80,
-      "description": "Product 30",
+      "description": "Type: Mid Tower\nMaterial: Steel + Mesh\nFan Support: Up to 6 Fans",
       "id": 35
     },
     {
@@ -324,7 +324,7 @@
       "categoryID": 3,
       "quantity": 113,
       "discount": 85,
-      "description": "Product 31",
+      "description": "Size: 24 inch\nResolution: 1920x1080\nRefresh Rate: 180Hz\nPanel Type: IPS",
       "id": 36
     },
     {
@@ -334,7 +334,7 @@
       "categoryID": 4,
       "quantity": 114,
       "discount": 25,
-      "description": "Product 32",
+      "description": "Type: Over-Ear\nDriver: 50mm\nConnectivity: Wired (USB)\nBattery: N/A",
       "id": 37
     },
     {
@@ -344,7 +344,7 @@
       "categoryID": 5,
       "quantity": 115,
       "discount": 20,
-      "description": "Product 33",
+      "description": "Switch Type: Mechanical (MLX Switch)\nLayout: Tenkeyless\nConnectivity: Wired",
       "id": 38
     },
     {
@@ -354,7 +354,7 @@
       "categoryID": 6,
       "quantity": 116,
       "discount": 15,
-      "description": "Product 34",
+      "description": "Type: Office\nWeight: 70g\nDPI: 1600\nConnectivity: Wireless",
       "id": 39
     },
     {
@@ -364,17 +364,17 @@
       "categoryID": 7,
       "quantity": 117,
       "discount": 10,
-      "description": "Product 35",
+      "description": "Print Type: Laser\nSpeed: 33 ppm\nConnectivity: USB/Wi-Fi",
       "id": 40
     },
     {
       "title": "Epson WorkForce ES-500W",
       "thumbnail": "https://i.ebayimg.com/images/g/CRMAAOSwn01i-Iz2/s-l1200.jpg",
       "price": 360000,
-      "categoryID": 8,
+      "categoryID": 9,
       "quantity": 118,
       "discount": 5,
-      "description": "Product 36",
+      "description": "Scan Type: Flatbed + ADF\nResolution: 600 dpi\nSpeed: 35 ppm",
       "id": 41
     }
   ],

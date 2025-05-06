@@ -1,9 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useQuery } from "@tanstack/react-query";
-import { Button, Input, Select, Pagination } from "antd";
+import { Button, Input, Select, Pagination, Empty } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import instance from "../../../../configs/axios";
+
+interface Product {
+  id: number;
+  title: string;
+  thumbnail: string;
+  price: number;
+  discount: number;
+  categoryID: number;
+}
+
+interface Category {
+  id: number;
+  name: string;
+}
 
 const ProductsClient = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,7 +28,7 @@ const ProductsClient = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
-  const { data: products, isLoading, isError } = useQuery({
+  const { data: products, isLoading, isError } = useQuery<Product[]>({
     queryKey: ["products"],
     queryFn: async () => {
       const response = await instance.get("/products");
@@ -22,39 +36,61 @@ const ProductsClient = () => {
     },
   });
 
-  const { data: Categories } = useQuery({
+  const { data: categories } = useQuery<Category[]>({
     queryKey: ["categories"],
     queryFn: async () => {
       const response = await instance.get("/categories");
       return response.data;
     },
-  })
+  });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error loading products</div>;
+  // Hàm lọc sản phẩm
+  const filterProducts = (products: Product[]): Product[] => {
+    let filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-  let filteredProducts = products.filter((product: { title: string; }) =>
-    product.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+    if (selectedCategory) {
+      filtered = filtered.filter((product) => product.categoryID === selectedCategory);
+    }
 
-  if (selectedCategory) {
-    filteredProducts = filteredProducts.filter(
-      (product: { categoryID: number; }) => product.categoryID === selectedCategory
+    if (minPrice !== "" && maxPrice !== "") {
+      filtered = filtered.filter(
+        (product) => product.price >= minPrice && product.price <= maxPrice
+      );
+    }
+
+    if (sortOrder === "asc") {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (sortOrder === "desc") {
+      filtered.sort((a, b) => b.price - a.price);
+    }
+
+    return filtered;
+  };
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto mt-10 px-4 mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+          {[...Array(8)].map((_, index) => (
+            <div key={index} className="border rounded-lg p-3 animate-pulse">
+              <div className="w-full h-48 bg-gray-200 rounded-md"></div>
+              <div className="mt-2 h-4 bg-gray-200 rounded w-3/4 mx-auto"></div>
+              <div className="mt-2 h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+              <div className="mt-3 h-8 bg-gray-200 rounded"></div>
+            </div>
+          ))}
+        </div>
+      </div>
     );
   }
 
-  if (minPrice !== "" && maxPrice !== "") {
-    filteredProducts = filteredProducts.filter(
-      (product: { price: number; }) => product.price >= minPrice && product.price <= maxPrice
-    );
+  if (isError) {
+    return <div className="text-center text-red-500">Error loading products</div>;
   }
 
-  if (sortOrder === "asc") {
-    filteredProducts.sort((a: { price: number; }, b: { price: number; }) => a.price - b.price);
-  } else if (sortOrder === "desc") {
-    filteredProducts.sort((a: { price: number; }, b: { price: number; }) => b.price - a.price);
-  }
-
+  const filteredProducts = filterProducts(products || []);
   const totalItems = filteredProducts.length;
   const paginatedProducts = filteredProducts.slice(
     (currentPage - 1) * itemsPerPage,
@@ -63,68 +99,123 @@ const ProductsClient = () => {
 
   return (
     <div className="container mx-auto mt-10 px-4 mb-10">
-      {/* Bộ lọc */}
-      <div className="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Input placeholder="🔍 Search..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+      {/* Filter */}
+      <div className="mb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Input
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="h-10 border-gray-300 rounded-md"
+        />
         <Select
-          placeholder="📂 Category"
+          placeholder="Select category"
           allowClear
-          className="w-full"
+          className="h-10"
           onChange={(value) => setSelectedCategory(value)}
         >
-          {Categories?.map((category: { id: number; name: string }) => (
+          {categories?.map((category) => (
             <Select.Option key={category.id} value={category.id}>
               {category.name}
             </Select.Option>
           ))}
         </Select>
-
         <div className="flex gap-2">
-          <Input type="number" placeholder="💰 Min Price" value={minPrice} onChange={(e) => setMinPrice(Number(e.target.value) || "")} />
-          <Input type="number" placeholder="💰 Max Price" value={maxPrice} onChange={(e) => setMaxPrice(Number(e.target.value) || "")} />
+          <Input
+            type="number"
+            placeholder="Minimum price"
+            value={minPrice}
+            min={0}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              setMinPrice(value >= 0 ? value : "");
+            }}
+            className="h-10 border-gray-300 rounded-md"
+          />
+          <Input
+            type="number"
+            placeholder="Maximum price"
+            value={maxPrice}
+            min={0}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              setMaxPrice(value >= 0 ? value : "");
+            }}
+            className="h-10 border-gray-300 rounded-md"
+          />
         </div>
-        <Select defaultValue="default" className="w-full" onChange={(value) => setSortOrder(value)}>
-          <Select.Option value="default">🔄 Default</Select.Option>
-          <Select.Option value="asc">⬆ Ascending</Select.Option>
-          <Select.Option value="desc">⬇ Descending</Select.Option>
+        <Select
+          defaultValue="default"
+          className="h-10"
+          onChange={(value) => setSortOrder(value)}
+        >
+          <Select.Option value="default">Default</Select.Option>
+          <Select.Option value="asc">Price ascending</Select.Option>
+          <Select.Option value="desc">Price descending</Select.Option>
         </Select>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-        {paginatedProducts.map((product: { id: React.Key | null | undefined; title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined; thumbnail: any; discount: number; price: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined; }) => (
-          <div key={product.id} className="border rounded-lg shadow-md p-3 flex flex-col items-center">
-            <h3 className="text-sm font-medium text-center">{product.title}</h3>
-            <Link to={`/product-client/${product.id}`}><img src={product.thumbnail || "/placeholder.jpg"} alt={product.title} className="w-full h-48 object-contain rounded-md" /></Link>
-            <div className="mt-auto text-center">
-              <span className="text-sm font-semibold text-cyan-500 block mt-2">
-                {product.discount > 0 ? (
-                  <>
-                    <span className="text-gray-500 line-through mr-1">${product.price}</span>
-                    <span>${(product.price * (1 - product.discount / 100)).toFixed(2)}</span>
-                  </>
-                ) : (
-                  `$${product.price}`
-                )}
-              </span>
-              <Link to={`/product/${product.id}`} className="w-full">
-                <Button className="w-full h-8 mt-3 text-xs font-medium !bg-black !text-white hover:!bg-yellow-300 hover:!text-black transition-all">
-                  ADD TO CART
+      {/* Products list */}
+      {paginatedProducts.length === 0 ? (
+        <Empty description="No products found" className="my-10" />
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          {paginatedProducts.map((product) => (
+            <div
+              key={product.id}
+              className="group border rounded-lg shadow-md p-4 bg-white hover:shadow-lg transition-shadow duration-300"
+            >
+              <Link to={`/product-client/${product.id}`}>
+                <div className="relative overflow-hidden rounded-md">
+                  <img
+                    src={product.thumbnail || "/placeholder.jpg"}
+                    alt={product.title}
+                    className="w-full h-48 object-contain transform group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              </Link>
+              <h3 className="text-base font-semibold text-gray-800 text-center mt-3 truncate">
+                {product.title}
+              </h3>
+              <div className="mt-2 text-center">
+                <span className="text-sm font-semibold text-cyan-500">
+                  {product.discount > 0 ? (
+                    <>
+                      <span className="text-gray-500 line-through mr-2">
+                        ${product.price}
+                      </span>
+                      <span>
+                        ${(product.price * (1 - product.discount / 100)).toFixed(2)}
+                      </span>
+                    </>
+                  ) : (
+                    `$${product.price}`
+                  )}
+                </span>
+              </div>
+              <Link to={`/product-client/${product.id}`}>
+                <Button
+                  className="w-full h-10 mt-4 text-sm font-semibold bg-black text-white hover:bg-yellow-400 hover:text-black transition-all duration-300"
+                >
+                  View details
                 </Button>
               </Link>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {/* Pagination */}
-      <div className="flex justify-center mt-6">
-        <Pagination
-          current={currentPage}
-          total={totalItems}
-          pageSize={itemsPerPage}
-          onChange={(page) => setCurrentPage(page)}
-        />
-      </div>
+      {totalItems > itemsPerPage && (
+        <div className="flex justify-center mt-8">
+          <Pagination
+            current={currentPage}
+            total={totalItems}
+            pageSize={itemsPerPage}
+            onChange={(page) => setCurrentPage(page)}
+            showSizeChanger={false}
+          />
+        </div>
+      )}
     </div>
   );
 };

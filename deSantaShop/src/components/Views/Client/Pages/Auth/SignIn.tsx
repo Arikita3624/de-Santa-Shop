@@ -1,13 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
 import { Button, Form, FormProps, Input, message, Checkbox } from "antd";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import React from "react";
-import { useNavigate } from "react-router-dom"; // Thêm useNavigate
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import instance from "../../../../../configs/axios";
 
 type FieldType = {
     email: string;
     password: string;
+    rememberMe?: boolean;
 };
 
 const SignIn = () => {
@@ -15,7 +16,20 @@ const SignIn = () => {
     const [form] = Form.useForm();
     const navigate = useNavigate();
 
-    const { mutate, isLoading, isError } = useMutation({
+    useEffect(() => {
+        const savedEmail = localStorage.getItem("savedEmail");
+        const savedPassword = localStorage.getItem("savedPassword");
+
+        if (savedEmail && savedPassword) {
+            form.setFieldsValue({
+                email: savedEmail,
+                password: savedPassword,
+                rememberMe: true
+            });
+        }
+    }, [form]);
+
+    const { mutate, isError } = useMutation({
         mutationFn: async (user: FieldType) => {
             try {
                 const response = await instance.post("/signin", user);
@@ -27,27 +41,39 @@ const SignIn = () => {
             }
         },
         onSuccess: (data) => {
-            if (data?.accessToken) {
+            if (data?.accessToken && data?.user) {
                 const rememberMe = form.getFieldValue("rememberMe");
                 const expiresInDays = 7;
                 const expiresAt = new Date();
                 expiresAt.setDate(expiresAt.getDate() + expiresInDays);
 
+                const userWithRole = {
+                    ...data.user,
+                    role: data.user.roleID === 1 ? "admin" : "user"
+                };
+
+                console.log("User with role:", userWithRole);
+
                 if (rememberMe) {
                     localStorage.setItem("accessToken", data.accessToken);
-                    localStorage.setItem("user", JSON.stringify(data.user));
+                    localStorage.setItem("user", JSON.stringify(userWithRole));
                     localStorage.setItem("expiresAt", expiresAt.toISOString());
+                    localStorage.setItem("savedEmail", form.getFieldValue("email"));
+                    localStorage.setItem("savedPassword", form.getFieldValue("password"));
                 } else {
                     sessionStorage.setItem("accessToken", data.accessToken);
-                    sessionStorage.setItem("user", JSON.stringify(data.user));
+                    sessionStorage.setItem("user", JSON.stringify(userWithRole));
+                    sessionStorage.setItem("expiresAt", expiresAt.toISOString());
+                    localStorage.removeItem("savedEmail");
+                    localStorage.removeItem("savedPassword");
                 }
 
-                messageApi.success("Login successfully! You will be redirected to the home page.");
+                messageApi.success("Login successfully! Redirecting...");
                 setTimeout(() => {
                     navigate("/");
                 }, 2000);
             } else {
-                messageApi.error("Invalid login response. No accessToken received.");
+                messageApi.error("No accessToken or user data received.");
             }
         },
         onError: () => {
@@ -59,7 +85,7 @@ const SignIn = () => {
         mutate(values);
     };
 
-    if (isLoading) return <div>Loading...</div>;
+
 
     if (isError) return <div>Error</div>;
 
@@ -102,7 +128,6 @@ const SignIn = () => {
                             <a href="#" className="text-gray-900 font-semibold hover:underline">Forgot password?</a>
                         </div>
                     </Form.Item>
-
 
                     <Form.Item>
                         <Button
